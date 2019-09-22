@@ -1,0 +1,26 @@
+2019-09-19 01:35:51 :: <INFO> :: Initialization Variables set successfully.
+2019-09-19 01:35:51 :: <INFO> :: Fetching task details from database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-19 01:35:51 :: <INFO> :: Successfully fetched task details from database.
+2019-09-19 01:35:51 :: <INFO> :: Fetching role name and node list from data file.
+2019-09-19 01:35:51 :: <INFO> :: Successfully fetched role name and node list from data file.
+2019-09-19 01:35:51 :: <INFO> :: Creating role to node mapping from data file.
+2019-09-19 01:35:51 :: <INFO> :: Finished creating role to node mapping from data file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-19 01:35:51 :: <INFO> :: Passing the control over to windows job executor.
+2019-09-19 01:35:51 :: <INFO> :: Initialization Variables set successfully in Job Executor.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-19 01:35:51 :: <INFO> :: Task Status successfully marked 'Running' in database.
+2019-09-19 01:35:51 :: <INFO> :: Traversing jobs from role to node mapping file.
+2019-09-19 01:35:51 :: <INFO> :: Successfully fetched job id, role name or node name from role to node mapping file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-19 01:35:51 :: <INFO> :: Successfully created job with Job ID: 1 in database.
+2019-09-19 01:35:52 :: <INFO> :: Successfully found activity directory.
+2019-09-19 01:36:09 :: <INFO> :: Job ID: 1 : Executing Role win_cluster_reboot on Node winnode2.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-19 01:36:09 :: <INFO> :: Successfully updated job status 'Executing' with Job ID: 1 in database.
+2019-09-19 01:36:46 :: <ERROR> :: Job ID: 1 : Failed to execute Role win_cluster_reboot on Node winnode2.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-19 01:36:46 :: <INFO> :: Successfully updated job status 'Failed' with Job ID: 1 in database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-19 01:36:46 :: <INFO> :: Task Status successfully marked 'Finished' in database.

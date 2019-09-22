@@ -1,0 +1,2 @@
+task_id	target_group_name	target_env_name	target_node_list	target_role_name	task_status	task_scheduled_time
+4	WINNODES1	PROD	winnode1;winnode2	prod_win_reboot	Scheduled	2019-09-21 04:19:00

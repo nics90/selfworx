@@ -1,0 +1,8 @@
+{
+    "name": "test_patch",
+    "description": "yo",
+    "run_list": [
+        "role[windows_patch_apply]",
+        "role[windows_server_reboot]"
+    ]
+}

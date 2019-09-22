@@ -1,0 +1,10 @@
+{
+    "name": "linux_server_reboot",
+    "description": "Linux Server Reboot",
+    "default_attributes": {
+        "delay": "1"
+    },
+    "run_list": [
+        "recipe[selfworx_linux_config::restart_node]"
+    ]
+}

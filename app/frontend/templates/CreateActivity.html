@@ -1,0 +1,275 @@
+{%  extends "base.html" %}
+{% block side %}
+<!-- Draggable UI JS  -->
+<script src="{{ url_for('frontend.static', filename='js/jquery-1.9.1.js')}}"></script>
+<script src="{{ url_for('frontend.static', filename='js/jquery-ui.js')}}"></script>
+<script src="{{ url_for('frontend.static', filename='vendor/jquery-3.2.1.min.js')}}"></script>
+<script src="{{ url_for('frontend.static', filename='vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+<script src="{{ url_for('frontend.static', filename='vendor/bootstrap-4.1/popper.min.js')}}"></script>
+<script> var $jq321 = jQuery.noConflict( true ); </script>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var selected_sub_activites = []
+    $.ajax({
+        url: '/api/getTargetSubActivity',
+        data: $('form').serialize(),
+        type: 'GET',
+        success: function(response) {
+            console.log(response);
+            count = Object.keys(response).length
+            console.log(count);
+            for(i=0;i<=count-1;i++)
+             {
+              // console.log(response[i]['target_subactivity_display_name']);
+               $("#t_draggable1 tbody").append('<tr><td id="'+response[i]['target_subactivity_name']+'">'+response[i]['target_subactivity_display_name']+'</td></tr>');
+             }
+          },
+        error: function(error) {
+          console.log(error);
+        }
+
+      });
+      var $tabs = $('#t_draggable2')
+      $("tbody.t_sortable").sortable({
+        connectWith: ".t_sortable",
+        items: "> tr:not(:first)",
+        appendTo: $tabs,
+        helper:"clone",
+        zIndex: 999990
+      }).disableSelection();
+
+      var $tab_items = $(".nav-tabs > li", $tabs).droppable({
+        accept: ".t_sortable tr",
+        hoverClass: "ui-state-hover",
+        drop: function( event, ui ) { return false; }
+      });
+
+      $('button').click(function() {
+        $("#test-display").empty();
+        $("#button-display").empty();
+        var TableData = new Array();
+        $("#selected_data tr").each(function(row, tr){
+          TableData = TableData +
+          $(tr).find('td:eq(0)').attr('id') + ',';// Task
+        });
+        var selected_subactivity_list = TableData.replace(/^undefined,|^\s+|^,|,$/g,'');
+        //console.log(selected_subactivity_list);
+             $.ajax({
+                 url: '/api/getSelectedSubActivityListData',
+                 data: "selected_subactivity_list="+selected_subactivity_list,
+                 type: 'POST',
+                 success: function(response) {
+                  // result = JSON.parse(response)
+                   //console.log(response[0]);
+                   count = Object.keys(response).length
+                   var htmlText = '';
+                   for ( j=0; j<count; j++ ) {
+                     var obj = JSON.parse(response[j]);
+                     //$("#test-display").empty();
+            //        console.log(response[j]);
+                    htmlText += '<table class="table table-earning table-light table-hover" id="'+obj.name+'">';
+                    htmlText += '<tr class="thead-dark"><th scope="col">Activity Inputs: '+obj.description+' </th></tr>';
+                    for (attribute in obj.default_attributes)
+                    {
+                      htmlText += '<tr id="'+attribute+'"><td><input type="text" style="width:100%; height:100%;" placeholder="'+obj.default_attributes[attribute]+'"></td></tr>'
+                      //console.log(attribute,obj.default_attributes[attribute]);
+                    }
+                    htmlText += '</table>';
+                       //+ response[j] + '</p>';
+                   }
+                   $("#test-display").append(htmlText);
+                  htmlButton = '<button  type="button" id="save-activity" class="btn btn-lg btn-info btn-block">Submit</button>';
+                  $("#button-display").append(htmlButton);
+                 },
+                 error: function(error) {
+                       alert('Some error occurred while creating activity');
+                  }
+              });
+          });
+          $("#button-display").click(function() {
+            //var TableData = new Array();
+            //$("#selected_data tr").each(function(row, tr){
+            //  TableData = TableData +
+            //  $(tr).find('td:eq(0)').attr('id') + ',';// Task
+            //});
+          //  data = $("#test-display table").attr('id');
+            var activity_tables = [];
+            $("#test-display table").each(function(row,activity_table){
+                  //console.log(activity_table.id);
+                  activity_tables.push(activity_table.id);
+                });
+
+            //console.log(activity_tables);
+            activity_tables_count = activity_tables.length
+            for (j=0;j<activity_tables_count;j++)
+              {
+                var sub_activity = {
+                    'name' : activity_tables[j],
+                    'default_attributes' : {}
+                }
+                  console.log(activity_tables[j]);
+                  $('table#'+activity_tables[j]+' tr').each(function(row,tr){
+                     c = $(tr).find('td:eq(0) input').val();
+                     if ( c !== undefined)
+                     {
+                       console.log(c);
+                       sub_activity['default_attributes'][tr.id] = c;
+                     }
+                  });
+                  //console.log(sub_activity);
+                  selected_sub_activites.push(sub_activity);
+              }
+              console.log(selected_sub_activites);
+         $jq321('#myModal').modal();
+          });
+          $("#activity-details").click(function() {
+             //console.log(selected_sub_activites);
+             activity_name = $("#activity-name").val();
+             activity_desc = $("#activity-desc").val();
+             var activity_details = {
+                 'activity_name' : activity_name,
+                 'activity_desc' : activity_desc,
+                 'selected_sub_activites' : selected_sub_activites
+             }
+             activity = JSON.stringify(activity_details);
+             $.ajax({
+                 url: '/api/createActivity',
+                 data: "activity="+activity,
+                 type: 'POST',
+                 success: function(response_ac) {
+                      var response = JSON.parse(response_ac)
+                      console.log(response);
+                      if ( response.redirect == "true" ) {
+                         alert('Activity created Successfully');
+                         window.location.href = response.redirect_url;
+                       }
+                      else {
+                         console.log(typeof(response));
+                         alert('Activity already exist. Please try some other activity name');
+                       }
+                 },
+                 error: function(error) {
+                    alert('Some error occurred while creating activity');
+                 }
+               });
+          //   console.log(activity);
+          });
+
+  });
+</script>
+
+<style type="text/css">
+.tables_ui {
+  display:inline-block;
+  margin:2px 2%;
+  border:2px solid black;
+  border-spacing:0;
+}
+.tables_ui ul li {
+  min-width: 200px;
+}
+.dragging li.ui-state-hover {
+  min-width: 240px;
+}
+.dragging .ui-state-hover a {
+  color:green !important;
+  font-weight: bold;
+}
+.tables_ui th,td {
+  text-align: center;
+  padding: 2px 4px;
+  border: 1px solid;
+  width: 500px;
+  height: 60px;
+}
+.t_sortable tr, .ui-sortable-helper {
+  cursor: move;
+}
+.t_sortable tr:first-child {
+  cursor: default;
+}
+.ui-sortable-placeholder {
+  background: black;
+}
+</style>
+
+<!-- MAIN CONTENT-->
+      <div class="main-content">
+          <div class="section__content section__content--p30">
+              <div class="container-fluid">
+                <div class="row">
+      <div class="col-lg-6">
+        <table class="tables_ui table-earning table-striped table-hover" id="t_draggable1"><caption><h4></h4><caption>
+<tbody class="t_sortable" id="selected_data1">
+  <tr class="thead-dark">
+    <th scope="col">Run List</th>
+  </tr>
+</tbody></table>
+  </div>
+  <div class="col-lg-6">
+<table class="tables_ui table-striped table-earning table-hover" id="t_draggable2"><caption><h4></h4></caption>
+<tbody class="t_sortable" id="selected_data">
+  <tr>
+    <th>Selected Run List</th>
+  </tr>
+
+</tbody>
+</table>
+  </div>
+    </div>
+  </div>
+  <button  type="button" class="btn btn-lg btn-info btn-block">Submit
+  </button>
+
+<br><br><br>
+ <div class="row">
+    <div id="test-display" class="col-lg-6">
+      </div>
+      </div>
+      <br><br><br>
+      <div class="row">
+         <div id="button-display" class="col-lg-6">
+           </div>
+           </div>
+
+
+
+                <div class="row copyright-footer">
+                      <div class="col-md-12">
+                          <div class="copyright">
+                              <p>Copyright © 2018 Colorlib. </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Modal -->
+<div id="myModal" class="modal" role="dialog">
+ <div class="modal-dialog">
+
+   <!-- Modal content-->
+   <div class="modal-content">
+     <div class="modal-header">
+        <h4 class="modal-title"><center>Enter Activity Details</center></h4>
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+     </div>
+     <div class="modal-body">
+       <label for="activity-name" class="control-label mb-1">Activity Name</label>
+       <input type="text" name="activity-name" class="form-control"id="activity-name">
+       <label for="activity-desc" class="control-label mb-1">Activity Description</label>
+       <input type="text" name="activity-desc" class="form-control" id="activity-desc">
+     </div>
+     <div class="modal-footer">
+       <button  type="button" class="btn btn-lg btn-info btn-block" id="activity-details">Submit
+       </button>
+     </div>
+   </div>
+
+ </div>
+</div>
+      <!-- END MAIN CONTENT-->
+
+
+{% endblock %}

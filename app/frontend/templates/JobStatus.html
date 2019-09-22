@@ -1,0 +1,64 @@
+{%  extends "base.html" %}
+{% block side %}
+
+<!-- Jquery JS-->
+<script src="{{ url_for('frontend.static', filename='vendor/jquery-3.2.1.min.js')}}"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+  $('#display_job_status').DataTable( {
+            "processing" : true,
+		    "ajax" : {
+			   //"url" : 'static/data.json',
+			   "url" : '/api/getJobStatus',
+			   "dataType" : "json"
+			   },
+			  "columns" : [
+			 {"data" : "job_id"},
+       {"data": "task_id" },
+			 {"data": "target_role_name"},
+			 {"data": "target_node_name" },
+			 {"data": "job_status" },
+			 {"data": "job_created" },
+			 {"data": "job_updated" }
+     ]
+			  }
+		  );
+});
+</script>
+                        <!-- MAIN CONTENT-->
+                              <div class="main-content">
+                                  <div class="section__content section__content--p30">
+                                      <div class="container-fluid">
+                                        <div class="row">
+                              <div class="col-lg-9">
+                                <div class="table-responsive m-b-90">
+                                    <table class="table table-striped" id="display_job_status">
+                                        <thead class="thead-dark">
+                                            <tr style="">
+                                              <th>Job ID</th>
+                                              <th>Task ID</th>
+                                              <th>Role Name</th>
+                                              <th>Node Name</th>
+                                              <th>Job Status</th>
+                                              <th>Created</th>
+                                              <th>Updated</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="output">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                          </div>
+                                        <div class="row copyright-footer">
+                                              <div class="col-md-12">
+                                                  <div class="copyright">
+                                                      <p>Copyright © 2018 Colorlib. </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- END MAIN CONTENT-->
+{% endblock %}

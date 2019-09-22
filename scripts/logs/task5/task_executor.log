@@ -1,0 +1,124 @@
+2019-09-21 04:31:01 :: <INFO> :: Initialization Variables set successfully.
+2019-09-21 04:31:01 :: <INFO> :: Fetching task details from database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:31:01 :: <INFO> :: Successfully fetched task details from database.
+2019-09-21 04:31:01 :: <INFO> :: Fetching role name and node list from data file.
+2019-09-21 04:31:01 :: <INFO> :: Successfully fetched role name and node list from data file.
+2019-09-21 04:31:01 :: <INFO> :: Creating role to node mapping from data file.
+2019-09-21 04:31:01 :: <INFO> :: Finished creating role to node mapping from data file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:31:01 :: <INFO> :: Passing the control over to linux job executor.
+2019-09-21 04:31:01 :: <INFO> :: Initialization Variables set successfully in Job Executor.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:31:01 :: <INFO> :: Task Status successfully marked 'Running' in database.
+2019-09-21 04:31:01 :: <INFO> :: Traversing jobs from role to node mapping file.
+2019-09-21 04:31:01 :: <INFO> :: Successfully fetched job id, role name or node name from role to node mapping file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:31:01 :: <INFO> :: Successfully created job with Job ID: 1 in database.
+2019-09-21 04:31:07 :: <INFO> :: Successfully found activity directory.
+2019-09-21 04:31:36 :: <INFO> :: Job ID: 1 : Executing Role prod_linux_reboot on Node linuxnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:31:36 :: <INFO> :: Successfully updated job status 'Executing' with Job ID: 1 in database.
+linuxnode1 Starting Chef Client, version 14.13.11[0m
+linuxnode1 [2019-09-21T04:31:57+00:00] INFO: *** Chef 14.13.11 ***
+linuxnode1 [2019-09-21T04:31:57+00:00] INFO: Platform: x86_64-linux
+linuxnode1 [2019-09-21T04:31:57+00:00] INFO: Chef-client pid: 5282
+linuxnode1 [2019-09-21T04:31:57+00:00] INFO: The plugin path /etc/chef/ohai/plugins does not exist. Skipping...
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Setting the run_list to [#<Chef::RunList::RunListItem:0x0000000003ed96a0 @version=nil, @type=:role, @name="prod_linux_reboot">] from CLI options
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Run List is [role[prod_linux_reboot]]
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Run List expands to [selfworx_linux_config::restart_node]
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Starting Chef Run for linuxnode1
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Running start handlers
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Start handlers complete.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Error while reporting run start to Data Collector. URL: https://chefserver.selfworx.com/organizations/selfworx/data-collector Exception: 404 -- 404 "Not Found"  (This is normal if you do not have Chef Automate)
+linuxnode1 resolving cookbooks for run list: ["selfworx_linux_config::restart_node"][0m
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Loading cookbooks [selfworx_linux_config@0.1.0]
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/LICENSE from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/CHANGELOG.md from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/Berksfile from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/attributes/default.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/metadata.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/libraries/helper.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/chefignore from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/README.md from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/recipes/default.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/recipes/deploy_web_app_iis.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/recipes/patch_apply.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/recipes/restart_node.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/recipes/install_iis.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/spec/unit/recipes/deploy_web_app_iis_spec.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/spec/unit/recipes/default_spec.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/spec/unit/recipes/install_iis_spec.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/spec/unit/recipes/patch_apply_spec.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/spec/unit/recipes/restart_node_spec.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/spec/spec_helper.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/templates/default/patchApply.ps1.erb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/test/integration/default/default_test.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/test/integration/default/install_iis_test.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/test/integration/default/patch_apply_test.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/test/integration/default/restart_node_test.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/test/integration/default/deploy_web_app_iis_test.rb from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/.gitignore from the cache; its cookbook is no longer needed on this client.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Removing cookbooks/selfworx_win_config/.kitchen.yml from the cache; its cookbook is no longer needed on this client.
+linuxnode1 Synchronizing Cookbooks:[0m
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Storing updated cookbooks/selfworx_linux_config/chefignore in the cache.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Storing updated cookbooks/selfworx_linux_config/LICENSE in the cache.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Storing updated cookbooks/selfworx_linux_config/.kitchen.yml in the cache.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Storing updated cookbooks/selfworx_linux_config/README.md in the cache.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Storing updated cookbooks/selfworx_linux_config/Berksfile in the cache.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Storing updated cookbooks/selfworx_linux_config/recipes/default.rb in the cache.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Storing updated cookbooks/selfworx_linux_config/CHANGELOG.md in the cache.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Storing updated cookbooks/selfworx_linux_config/metadata.rb in the cache.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Storing updated cookbooks/selfworx_linux_config/.gitignore in the cache.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Storing updated cookbooks/selfworx_linux_config/spec/unit/recipes/default_spec.rb in the cache.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Storing updated cookbooks/selfworx_linux_config/spec/spec_helper.rb in the cache.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Storing updated cookbooks/selfworx_linux_config/test/integration/default/default_test.rb in the cache.
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Storing updated cookbooks/selfworx_linux_config/recipes/restart_node.rb in the cache.
+linuxnode1   - selfworx_linux_config (0.1.0)[0m
+linuxnode1 Installing Cookbook Gems:[0m
+linuxnode1 Compiling Cookbooks...[0m
+linuxnode1 Converging 1 resources[0m
+linuxnode1 Recipe: selfworx_linux_config::restart_node[0m
+linuxnode1   * reboot[linux reboot activity] action request_reboot[2019-09-21T04:32:11+00:00] INFO: Processing reboot[linux reboot activity] action request_reboot (selfworx_linux_config::restart_node line 9)
+linuxnode1 [2019-09-21T04:32:11+00:00] WARN: Reboot requested:'linux reboot activity'
+linuxnode1 [2019-09-21T04:32:11+00:00] INFO: Changing reboot status from {} to {:delay_mins=>1, :reason=>"Selfworx reboot linux activity.", :timestamp=>2019-09-21 04:32:11 +0000, :requested_by=>"linux reboot activity"}
+linuxnode1 
+linuxnode1     [32m- request a system reboot to occur if the run succeeds[0m
+linuxnode1 [0m[2019-09-21T04:32:12+00:00] INFO: Chef Run complete in 0.793258363 seconds
+linuxnode1 [0m
+linuxnode1 Running handlers:[0m
+linuxnode1 [2019-09-21T04:32:12+00:00] INFO: Running report handlers
+linuxnode1 Running handlers complete
+linuxnode1 [0m[2019-09-21T04:32:12+00:00] INFO: Report handlers complete
+linuxnode1 Chef Client finished, 1/1 resources updated in 14 seconds[0m
+linuxnode1 [2019-09-21T04:32:12+00:00] WARN: Rebooting server at a recipe's request. Details: {:delay_mins=>1, :reason=>"Selfworx reboot linux activity.", :timestamp=>2019-09-21 04:32:11 +0000, :requested_by=>"linux reboot activity"}
+linuxnode1 [0m
+linuxnode1 Running handlers:[0m
+linuxnode1 [2019-09-21T04:32:12+00:00] ERROR: Running exception handlers
+linuxnode1 Running handlers complete
+linuxnode1 [0m[2019-09-21T04:32:12+00:00] ERROR: Exception handlers complete
+linuxnode1 Chef Client failed. 1 resources updated in 15 seconds[0m
+linuxnode1 [2019-09-21T04:32:12+00:00] FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
+linuxnode1 [2019-09-21T04:32:12+00:00] FATAL: Please provide the contents of the stacktrace.out file if you file a bug report
+linuxnode1 [2019-09-21T04:32:12+00:00] FATAL: Chef::Exceptions::Reboot: Rebooting server at a recipe's request. Details: {:delay_mins=>1, :reason=>"Selfworx reboot linux activity.", :timestamp=>2019-09-21 04:32:11 +0000, :requested_by=>"linux reboot activity"}
+linuxnode1 
+linuxnode1 Broadcast message from root@linuxnode1 (Sat 2019-09-21 04:32:12 UTC):
+linuxnode1 
+linuxnode1 Selfworx reboot linux activity.
+linuxnode1 The system is going down for reboot at Sat 2019-09-21 04:33:12 UTC!
+linuxnode1 
+2019-09-21 04:32:12 :: <INFO> :: Job ID: 1 : Successfully executed Role prod_linux_reboot on Node linuxnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:32:12 :: <INFO> :: Successfully updated job status 'Completed' with Job ID: 1 in database.
+2019-09-21 04:32:12 :: <INFO> :: Successfully fetched job id, role name or node name from role to node mapping file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:32:12 :: <INFO> :: Successfully created job with Job ID: 2 in database.
+2019-09-21 04:32:17 :: <INFO> :: Successfully found activity directory.
+2019-09-21 04:32:44 :: <INFO> :: Job ID: 2 : Executing Role prod_linux_reboot on Node linuxnode2.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:32:44 :: <INFO> :: Successfully updated job status 'Executing' with Job ID: 2 in database.
+2019-09-21 04:32:57 :: <ERROR> :: Job ID: 2 : Failed to execute Role prod_linux_reboot on Node linuxnode2.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:32:57 :: <INFO> :: Successfully updated job status 'Failed' with Job ID: 2 in database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:32:57 :: <INFO> :: Task Status successfully marked 'Finished' in database.

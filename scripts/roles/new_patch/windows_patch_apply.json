@@ -1,0 +1,11 @@
+{
+    "name": "windows_patch_apply",
+    "description": "Apply patch on windows server",
+    "default_attributes": {
+        "patch_list": "kb4499151.msu",
+        "ftp_patch_url": "ftp://1.1.1.71/pub"
+    },
+    "run_list": [
+        "recipe[selfworx_win_config::patch_apply]"
+    ]
+}

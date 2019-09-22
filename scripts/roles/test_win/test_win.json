@@ -1,0 +1,7 @@
+{
+    "name": "test_win",
+    "description": "testing",
+    "run_list": [
+        "role[windows_server_reboot]"
+    ]
+}

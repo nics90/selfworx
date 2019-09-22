@@ -1,0 +1,74 @@
+{%  extends "base.html" %}
+{% block side %}
+
+<!-- Jquery JS-->
+<script src="{{ url_for('frontend.static', filename='vendor/jquery-3.2.1.min.js')}}"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+        $.ajax({
+            url: '/api/getEnvironment',
+            data: $('form').serialize(),
+            type: 'GET',
+            success: function(response) {
+                console.log(response);
+                result = JSON.parse(response)
+	              count = Object.keys(result).length
+	              var table = document.getElementById("envtable");
+                for(i=1;i<=count;i++)
+		              {
+			                 tr = table.insertRow(-1);
+                       row_arr = String(result[i]).split(',');
+			                 for(j=0;j<row_arr.length;j++)
+			                    {
+				                      var td = tr.insertCell(-1);
+                              td.innerHTML = row_arr[j];
+				                      if(j==2)
+				                          {
+				                                var td = tr.insertCell(-1);
+				                                td.innerHTML = "<button type=\"button\" class=\"btn btn-primary\" onclick=\"deleteEntry('"+row_arr[0]+","+row_arr[1]+","+row_arr[2]+"')\">Delete</button>"
+				                           }
+			                       }
+		                       }
+ 		                    var divContainer = document.getElementById("output");
+      	                divContainer.innerHTML = "";
+                        divContainer.appendChild(table);
+                      },
+             error: function(error) {
+                  console.log(error);
+                }
+        });
+});
+</script>
+                        <!-- MAIN CONTENT-->
+                              <div class="main-content">
+                                  <div class="section__content section__content--p30">
+                                      <div class="container-fluid">
+                                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="table-responsive table--no-card m-b-30">
+                                    <table class="table table-borderless table-striped table-earning" id="envtable">
+                                        <thead>
+                                            <tr>
+                                                <th>Environment Name</th>
+                                                <th>Environment Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="output">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                          </div>
+                                        <div class="row copyright-footer">
+                                              <div class="col-md-12">
+                                                  <div class="copyright">
+                                                      <p>Copyright © 2018 Colorlib. </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- END MAIN CONTENT-->
+{% endblock %}

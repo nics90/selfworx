@@ -1,0 +1,11 @@
+{
+    "name": "windows_server_reboot",
+    "description": "Windows Server Reboot",
+    "default_attributes": {
+        "delay_win": "2",
+        "reboot_justification": "Testing Win Reboot"
+    },
+    "run_list": [
+        "recipe[selfworx_win_config::restart_node]"
+    ]
+}

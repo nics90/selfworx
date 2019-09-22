@@ -1,0 +1,2 @@
+task_id	target_group_name	target_env_name	target_node_list	target_role_name	task_status	task_scheduled_time
+6	LINNODES1	PROD	linuxnode1;linuxnode2	prod_linux_reboot	Scheduled	2019-09-21 04:42:00

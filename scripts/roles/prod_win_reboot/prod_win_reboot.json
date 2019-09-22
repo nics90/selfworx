@@ -1,0 +1,7 @@
+{
+    "name": "prod_win_reboot",
+    "description": "Production",
+    "run_list": [
+        "role[windows_server_reboot]"
+    ]
+}

@@ -1,0 +1,209 @@
+2019-09-09 18:09:29 :: <INFO> :: Initialization Variables set successfully.
+2019-09-09 18:09:29 :: <INFO> :: Fetching task details from database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-09 18:09:29 :: <INFO> :: Successfully fetched task details from database.
+2019-09-09 18:09:29 :: <INFO> :: Fetching role name and node list from data file.
+2019-09-09 18:09:29 :: <INFO> :: Successfully fetched role name and node list from data file.
+2019-09-09 18:09:29 :: <INFO> :: Creating role to node mapping from data file.
+2019-09-09 18:09:29 :: <INFO> :: Finished creating role to node mapping from data file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-09 18:09:29 :: <INFO> :: Passing the control over to windows job executor.
+2019-09-09 18:09:30 :: <INFO> :: Initialization Variables set successfully in Job Executor.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-09 18:09:30 :: <INFO> :: Task Status successfully marked 'Running' in database.
+2019-09-09 18:09:30 :: <INFO> :: Traversing jobs from role to node mapping file.
+2019-09-09 18:09:30 :: <INFO> :: Successfully fetched job id, role name or node name from role to node mapping file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-09 18:09:30 :: <INFO> :: Successfully created job with Job ID: 1 in database.
+2019-09-09 18:09:31 :: <INFO> :: Successfully found activity directory.
+2019-09-09 18:09:52 :: <INFO> :: Job ID: 1 : Executing Role patch_apply on Node winnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-09 18:09:52 :: <INFO> :: Successfully updated job status 'Executing' with Job ID: 1 in database.
+winnode1 Starting Chef Client, version 14.12.9[0m
+winnode1 
+winnode1 [2019-09-09T18:10:01+00:00] INFO: *** Chef 14.12.9 ***
+winnode1 [2019-09-09T18:10:01+00:00] INFO: Platform: x64-mingw32
+winnode1 [2019-09-09T18:10:01+00:00] INFO: Chef-client pid: 2520
+winnode1 [2019-09-09T18:10:01+00:00] INFO: The plugin path C:\chef\ohai\plugins does not exist. Skipping...
+winnode1 [2019-09-09T18:10:06+00:00] INFO: Setting the run_list to [#<Chef::RunList::RunListItem:0x0000000002977fa0 @version=nil, @type=:role, @name="patch_apply">] from CLI options
+winnode1 [2019-09-09T18:10:06+00:00] INFO: Run List is [role[patch_apply]]
+winnode1 [2019-09-09T18:10:06+00:00] INFO: Run List expands to [selfworx_win_config::patch_apply]
+winnode1 [2019-09-09T18:10:06+00:00] INFO: Starting Chef Run for winnode1
+winnode1 [2019-09-09T18:10:06+00:00] INFO: Running start handlers
+winnode1 [2019-09-09T18:10:06+00:00] INFO: Start handlers complete.
+winnode1 [2019-09-09T18:10:07+00:00] INFO: Error while reporting run start to Data Collector. URL: https://chefserver.selfworx.com/organizations/selfworx/data-collector Exception: 404 -- 404 "Not Found"  (This is normal if you do not have Chef Automate)
+winnode1 resolving cookbooks for run list: ["selfworx_win_config::patch_apply"][0m
+winnode1 [2019-09-09T18:10:07+00:00] INFO: Loading cookbooks [selfworx_win_config@0.1.0]
+winnode1 Synchronizing Cookbooks:[0m
+winnode1 
+winnode1 [2019-09-09T18:10:07+00:00] INFO: Storing updated cookbooks/selfworx_win_config/recipes/patch_apply.rb in the cache.
+winnode1   - selfworx_win_config (0.1.0)[0m
+winnode1 Installing Cookbook Gems:[0m
+winnode1 Compiling Cookbooks...[0m
+winnode1 [2019-09-09T18:10:07+00:00] INFO: Downloading patch kb4499151.msu
+winnode1 [2019-09-09T18:10:07+00:00] INFO: Downloading patch kb4040974.msu
+winnode1 [2019-09-09T18:10:09+00:00] INFO: Patch Apply task is in '' state since 10 seconds.
+winnode1 [2019-09-09T18:10:10+00:00] INFO: Patch Apply task is in '' state since 40 seconds.
+winnode1 [2019-09-09T18:10:12+00:00] INFO: Patch Apply task is in '' state since 70 seconds.
+winnode1 [2019-09-09T18:10:13+00:00] INFO: Patch Apply task is in '' state since 100 seconds.
+winnode1 [2019-09-09T18:10:15+00:00] INFO: Patch Apply task is in '' state since 130 seconds.
+winnode1 [2019-09-09T18:10:16+00:00] INFO: Patch Apply task is in '' state since 160 seconds.
+winnode1 [2019-09-09T18:10:17+00:00] INFO: Patch Apply task is in '' state since 190 seconds.
+winnode1 [2019-09-09T18:10:19+00:00] INFO: Patch Apply task is in '' state since 220 seconds.
+winnode1 [2019-09-09T18:10:20+00:00] INFO: Patch Apply task is in '' state since 250 seconds.
+winnode1 [2019-09-09T18:10:21+00:00] INFO: Patch Apply task is in '' state since 280 seconds.
+winnode1 [2019-09-09T18:10:23+00:00] INFO: Patch Apply task is in '' state since 310 seconds.
+winnode1 [2019-09-09T18:10:24+00:00] INFO: Patch Apply task is in '' state since 340 seconds.
+winnode1 [2019-09-09T18:10:26+00:00] INFO: Patch Apply task is in '' state since 370 seconds.
+winnode1 [2019-09-09T18:10:27+00:00] INFO: Patch Apply task is in '' state since 400 seconds.
+winnode1 [2019-09-09T18:10:28+00:00] INFO: Patch Apply task is in '' state since 430 seconds.
+winnode1 [2019-09-09T18:10:30+00:00] INFO: Patch Apply task is in '' state since 460 seconds.
+winnode1 [2019-09-09T18:10:31+00:00] INFO: Patch Apply task is in '' state since 490 seconds.
+winnode1 [2019-09-09T18:10:33+00:00] INFO: Patch Apply task is in '' state since 520 seconds.
+winnode1 [2019-09-09T18:10:35+00:00] INFO: Patch Apply task is in '' state since 550 seconds.
+winnode1 [2019-09-09T18:10:36+00:00] INFO: Patch Apply task is in '' state since 580 seconds.
+winnode1 [2019-09-09T18:10:38+00:00] INFO: Patch Apply task is in '' state since 610 seconds.
+winnode1 [2019-09-09T18:10:39+00:00] INFO: Patch Apply task is in '' state since 640 seconds.
+winnode1 [2019-09-09T18:10:41+00:00] INFO: Patch Apply task is in '' state since 670 seconds.
+winnode1 [2019-09-09T18:10:42+00:00] INFO: Patch Apply task is in '' state since 700 seconds.
+winnode1 [2019-09-09T18:10:44+00:00] INFO: Patch Apply task is in '' state since 730 seconds.
+winnode1 [2019-09-09T18:10:45+00:00] INFO: Patch Apply task is in '' state since 760 seconds.
+winnode1 [2019-09-09T18:10:47+00:00] INFO: Patch Apply task is in '' state since 790 seconds.
+winnode1 [2019-09-09T18:10:49+00:00] INFO: Patch Apply task is in '' state since 820 seconds.
+winnode1 [2019-09-09T18:10:51+00:00] INFO: Patch Apply task is in '' state since 850 seconds.
+winnode1 [2019-09-09T18:10:52+00:00] INFO: Patch Apply task is in '' state since 880 seconds.
+winnode1 [2019-09-09T18:10:54+00:00] INFO: Patch Apply task is in '' state since 910 seconds.
+winnode1 [2019-09-09T18:10:56+00:00] INFO: Patch Apply task is in '' state since 940 seconds.
+winnode1 [2019-09-09T18:10:59+00:00] INFO: Patch Apply task is in '' state since 970 seconds.
+winnode1 [2019-09-09T18:11:01+00:00] INFO: Patch Apply task is in '' state since 1000 seconds.
+winnode1 [2019-09-09T18:11:03+00:00] INFO: Patch Apply task is in '' state since 1030 seconds.
+winnode1 [2019-09-09T18:11:06+00:00] INFO: Patch Apply task is in '' state since 1060 seconds.
+winnode1 [2019-09-09T18:11:09+00:00] INFO: Patch Apply task is in '' state since 1090 seconds.
+winnode1 [2019-09-09T18:11:11+00:00] INFO: Patch Apply task is in '' state since 1120 seconds.
+winnode1 [2019-09-09T18:11:13+00:00] INFO: Patch Apply task is in '' state since 1150 seconds.
+winnode1 [2019-09-09T18:11:15+00:00] INFO: Patch Apply task is in '' state since 1180 seconds.
+winnode1 [2019-09-09T18:11:17+00:00] INFO: Patch Apply task is in '' state since 1210 seconds.
+winnode1 [2019-09-09T18:11:18+00:00] INFO: Patch Apply task is in '' state since 1240 seconds.
+winnode1 [2019-09-09T18:11:20+00:00] INFO: Patch Apply task is in '' state since 1270 seconds.
+winnode1 [2019-09-09T18:11:22+00:00] INFO: Patch Apply task is in '' state since 1300 seconds.
+winnode1 [2019-09-09T18:11:24+00:00] INFO: Patch Apply task is in '' state since 1330 seconds.
+winnode1 [2019-09-09T18:11:26+00:00] INFO: Patch Apply task is in '' state since 1360 seconds.
+winnode1 [2019-09-09T18:11:28+00:00] INFO: Patch Apply task is in '' state since 1390 seconds.
+winnode1 [2019-09-09T18:11:29+00:00] INFO: Patch Apply task is in '' state since 1420 seconds.
+winnode1 [2019-09-09T18:11:31+00:00] INFO: Patch Apply task is in '' state since 1450 seconds.
+winnode1 [2019-09-09T18:11:33+00:00] INFO: Patch Apply task is in '' state since 1480 seconds.
+winnode1 [2019-09-09T18:11:34+00:00] INFO: Patch Apply task is in '' state since 1510 seconds.
+winnode1 [2019-09-09T18:11:36+00:00] INFO: Patch Apply task is in '' state since 1540 seconds.
+winnode1 [2019-09-09T18:11:38+00:00] INFO: Patch Apply task is in '' state since 1570 seconds.
+winnode1 [2019-09-09T18:11:39+00:00] INFO: Patch Apply task is in '' state since 1600 seconds.
+winnode1 [2019-09-09T18:11:40+00:00] INFO: Patch Apply task is in '' state since 1630 seconds.
+winnode1 [2019-09-09T18:11:42+00:00] INFO: Patch Apply task is in '' state since 1660 seconds.
+winnode1 [2019-09-09T18:11:43+00:00] INFO: Patch Apply task is in '' state since 1690 seconds.
+winnode1 [2019-09-09T18:11:45+00:00] INFO: Patch Apply task is in '' state since 1720 seconds.
+winnode1 [2019-09-09T18:11:46+00:00] INFO: Patch Apply task is in '' state since 1750 seconds.
+winnode1 [2019-09-09T18:11:47+00:00] INFO: Patch Apply task is in '' state since 1780 seconds.
+winnode1 [2019-09-09T18:11:49+00:00] INFO: Patch Apply task is in '' state since 1810 seconds.
+winnode1 [2019-09-09T18:11:50+00:00] INFO: Patch Apply task is in '' state since 1840 seconds.
+winnode1 [2019-09-09T18:11:51+00:00] INFO: Patch Apply task is in '' state since 1870 seconds.
+winnode1 [2019-09-09T18:11:52+00:00] INFO: Patch Apply task is in '' state since 1900 seconds.
+winnode1 [2019-09-09T18:11:53+00:00] INFO: Patch Apply task is in '' state since 1930 seconds.
+winnode1 [2019-09-09T18:11:54+00:00] INFO: Patch Apply task is in '' state since 1960 seconds.
+winnode1 [2019-09-09T18:11:54+00:00] INFO: Patch Apply task is in '' state since 1990 seconds.
+winnode1 [2019-09-09T18:11:55+00:00] INFO: Patch Apply task is in '' state since 2020 seconds.
+winnode1 [2019-09-09T18:11:56+00:00] INFO: Patch Apply task is in '' state since 2050 seconds.
+winnode1 [2019-09-09T18:11:57+00:00] INFO: Patch Apply task is in '' state since 2080 seconds.
+winnode1 [2019-09-09T18:11:58+00:00] INFO: Patch Apply task is in '' state since 2110 seconds.
+winnode1 [2019-09-09T18:11:59+00:00] INFO: Patch Apply task is in '' state since 2140 seconds.
+winnode1 [2019-09-09T18:12:00+00:00] INFO: Patch Apply task is in '' state since 2170 seconds.
+winnode1 [2019-09-09T18:12:01+00:00] INFO: Patch Apply task is in '' state since 2200 seconds.
+winnode1 [2019-09-09T18:12:02+00:00] INFO: Patch Apply task is in '' state since 2230 seconds.
+winnode1 [2019-09-09T18:12:03+00:00] INFO: Patch Apply task is in '' state since 2260 seconds.
+winnode1 [2019-09-09T18:12:04+00:00] INFO: Patch Apply task is in '' state since 2290 seconds.
+winnode1 [2019-09-09T18:12:04+00:00] INFO: Patch Apply task is in '' state since 2320 seconds.
+winnode1 [2019-09-09T18:12:05+00:00] INFO: Patch Apply task is in '' state since 2350 seconds.
+winnode1 [2019-09-09T18:12:06+00:00] INFO: Patch Apply task is in '' state since 2380 seconds.
+winnode1 [2019-09-09T18:12:07+00:00] INFO: Patch Apply task is in '' state since 2410 seconds.
+winnode1 [2019-09-09T18:12:08+00:00] INFO: Patch Apply task is in '' state since 2440 seconds.
+winnode1 [2019-09-09T18:12:08+00:00] INFO: Patch Apply task is in '' state since 2470 seconds.
+winnode1 [2019-09-09T18:12:09+00:00] INFO: Patch Apply task is in '' state since 2500 seconds.
+winnode1 [2019-09-09T18:12:10+00:00] INFO: Patch Apply task is in '' state since 2530 seconds.
+winnode1 [2019-09-09T18:12:11+00:00] INFO: Patch Apply task is in '' state since 2560 seconds.
+winnode1 [2019-09-09T18:12:11+00:00] INFO: Patch Apply task is in '' state since 2590 seconds.
+winnode1 [2019-09-09T18:12:12+00:00] INFO: Patch Apply task is in '' state since 2620 seconds.
+winnode1 [2019-09-09T18:12:13+00:00] INFO: Patch Apply task is in '' state since 2650 seconds.
+winnode1 [2019-09-09T18:12:14+00:00] INFO: Patch Apply task is in '' state since 2680 seconds.
+winnode1 [2019-09-09T18:12:15+00:00] INFO: Patch Apply task is in '' state since 2710 seconds.
+winnode1 [2019-09-09T18:12:16+00:00] INFO: Patch Apply task is in '' state since 2740 seconds.
+winnode1 [2019-09-09T18:12:17+00:00] INFO: Patch Apply task is in '' state since 2770 seconds.
+winnode1 [2019-09-09T18:12:18+00:00] INFO: Patch Apply task is in '' state since 2800 seconds.
+winnode1 [2019-09-09T18:12:18+00:00] INFO: Patch Apply task is in '' state since 2830 seconds.
+winnode1 [2019-09-09T18:12:19+00:00] INFO: Patch Apply task is in '' state since 2860 seconds.
+winnode1 [2019-09-09T18:12:20+00:00] INFO: Patch Apply task is in '' state since 2890 seconds.
+winnode1 [2019-09-09T18:12:23+00:00] INFO: Patch Apply task is in '' state since 2920 seconds.
+winnode1 [2019-09-09T18:12:26+00:00] INFO: Patch Apply task is in '' state since 2950 seconds.
+winnode1 [2019-09-09T18:12:27+00:00] INFO: Patch Apply task is in '' state since 2980 seconds.
+winnode1 [2019-09-09T18:12:28+00:00] INFO: Patch Apply task is in '' state since 3010 seconds.
+winnode1 [2019-09-09T18:12:29+00:00] INFO: Patch Apply task is in '' state since 3040 seconds.
+winnode1 [2019-09-09T18:12:31+00:00] INFO: Patch Apply task is in '' state since 3070 seconds.
+winnode1 [2019-09-09T18:12:32+00:00] INFO: Patch Apply task is in '' state since 3100 seconds.
+winnode1 [2019-09-09T18:12:33+00:00] INFO: Patch Apply task is in '' state since 3130 seconds.
+winnode1 [2019-09-09T18:12:34+00:00] INFO: Patch Apply task is in '' state since 3160 seconds.
+winnode1 [2019-09-09T18:12:35+00:00] INFO: Patch Apply task is in '' state since 3190 seconds.
+winnode1 [2019-09-09T18:12:36+00:00] INFO: Patch Apply task is in '' state since 3220 seconds.
+winnode1 [2019-09-09T18:12:37+00:00] INFO: Patch Apply task is in '' state since 3250 seconds.
+winnode1 [2019-09-09T18:12:38+00:00] INFO: Patch Apply task is in '' state since 3280 seconds.
+winnode1 [2019-09-09T18:12:40+00:00] INFO: Patch Apply task is in '' state since 3310 seconds.
+winnode1 [2019-09-09T18:12:41+00:00] INFO: Patch Apply task is in '' state since 3340 seconds.
+winnode1 [2019-09-09T18:12:42+00:00] INFO: Patch Apply task is in '' state since 3370 seconds.
+winnode1 [2019-09-09T18:12:43+00:00] INFO: Patch Apply task is in '' state since 3400 seconds.
+winnode1 [2019-09-09T18:12:45+00:00] INFO: Patch Apply task is in '' state since 3430 seconds.
+winnode1 [2019-09-09T18:12:46+00:00] INFO: Patch Apply task is in '' state since 3460 seconds.
+winnode1 [2019-09-09T18:12:47+00:00] INFO: Patch Apply task is in '' state since 3490 seconds.
+winnode1 [2019-09-09T18:12:48+00:00] INFO: Patch Apply task is in '' state since 3520 seconds.
+winnode1 [2019-09-09T18:12:50+00:00] INFO: Patch Apply task is in '' state since 3550 seconds.
+winnode1 [2019-09-09T18:12:51+00:00] INFO: Patch Apply task is in '' state since 3580 seconds.
+winnode1 [2019-09-09T18:12:52+00:00] INFO: Patch Apply task is in '' state since 3610 seconds.
+winnode1 [2019-09-09T18:12:53+00:00] INFO: Patch Apply task is in '' state since 3640 seconds.
+winnode1 [2019-09-09T18:12:55+00:00] INFO: Patch Apply task is in '' state since 3670 seconds.
+winnode1 [2019-09-09T18:12:56+00:00] INFO: Patch Apply task is in '' state since 3700 seconds.
+winnode1 [2019-09-09T18:12:57+00:00] INFO: Patch Apply task is in '' state since 3730 seconds.
+winnode1 [2019-09-09T18:12:59+00:00] INFO: Patch Apply task is in '' state since 3760 seconds.
+winnode1 [2019-09-09T18:13:00+00:00] INFO: Patch Apply task is in '' state since 3790 seconds.
+winnode1 [2019-09-09T18:13:01+00:00] INFO: Patch Apply task is in '' state since 3820 seconds.
+winnode1 [2019-09-09T18:13:03+00:00] INFO: Patch Apply task is in '' state since 3850 seconds.
+winnode1 [2019-09-09T18:13:04+00:00] INFO: Patch Apply task is in '' state since 3880 seconds.
+winnode1 [2019-09-09T18:13:05+00:00] INFO: Patch Apply task is in '' state since 3910 seconds.
+winnode1 [2019-09-09T18:13:07+00:00] INFO: Patch Apply task is in '' state since 3940 seconds.
+winnode1 [2019-09-09T18:13:08+00:00] INFO: Patch Apply task is in '' state since 3970 seconds.
+winnode1 [2019-09-09T18:13:09+00:00] INFO: Patch Apply task is in '' state since 4000 seconds.
+winnode1 [2019-09-09T18:13:11+00:00] INFO: Patch Apply task is in '' state since 4030 seconds.
+winnode1 [2019-09-09T18:13:12+00:00] INFO: Patch Apply task is in '' state since 4060 seconds.
+winnode1 [2019-09-09T18:13:14+00:00] INFO: Patch Apply task is in '' state since 4090 seconds.
+winnode1 [2019-09-09T18:13:15+00:00] INFO: Patch Apply task is in '' state since 4120 seconds.
+winnode1 [2019-09-09T18:13:17+00:00] INFO: Patch Apply task is in '' state since 4150 seconds.
+winnode1 [2019-09-09T18:13:18+00:00] INFO: Patch Apply task is in '' state since 4180 seconds.
+winnode1 [2019-09-09T18:13:20+00:00] INFO: Patch Apply task is in '' state since 4210 seconds.
+winnode1 [2019-09-09T18:13:21+00:00] INFO: Patch Apply task is in '' state since 4240 seconds.
+winnode1 [2019-09-09T18:13:23+00:00] INFO: Patch Apply task is in '' state since 4270 seconds.
+winnode1 [2019-09-09T18:13:24+00:00] INFO: Patch Apply task is in '' state since 4300 seconds.
+winnode1 [2019-09-09T18:13:26+00:00] INFO: Patch Apply task is in '' state since 4330 seconds.
+winnode1 [2019-09-09T18:13:28+00:00] INFO: Patch Apply task is in '' state since 4360 seconds.
+winnode1 [2019-09-09T18:13:29+00:00] INFO: Patch Apply task is in '' state since 4390 seconds.
+winnode1 [2019-09-09T18:13:31+00:00] INFO: Patch Apply task is in '' state since 4420 seconds.
+winnode1 [2019-09-09T18:13:32+00:00] INFO: Patch Apply task is in '' state since 4450 seconds.
+winnode1 [2019-09-09T18:13:34+00:00] INFO: Patch Apply task is in '' state since 4480 seconds.
+winnode1 [2019-09-09T18:13:36+00:00] INFO: Patch Apply task is in '' state since 4510 seconds.
+winnode1 [2019-09-09T18:13:38+00:00] INFO: Patch Apply task is in '' state since 4540 seconds.
+winnode1 [2019-09-09T18:13:39+00:00] INFO: Patch Apply task is in '' state since 4570 seconds.
+winnode1 [2019-09-09T18:13:41+00:00] INFO: Patch Apply task is in '' state since 4600 seconds.
+winnode1 [2019-09-09T18:13:43+00:00] INFO: Patch Apply task is in '' state since 4630 seconds.
+winnode1 [2019-09-09T18:13:45+00:00] INFO: Patch Apply task is in '' state since 4660 seconds.
+winnode1 [2019-09-09T18:13:47+00:00] INFO: Patch Apply task is in '' state since 4690 seconds.
+winnode1 [2019-09-09T18:13:48+00:00] INFO: Patch Apply task is in '' state since 4720 seconds.
+winnode1 [2019-09-09T18:13:50+00:00] INFO: Patch Apply task is in '' state since 4750 seconds.
+winnode1 [2019-09-09T18:13:51+00:00] INFO: Patch Apply task is in '' state since 4780 seconds.
+2019-09-09 18:13:52 :: <ERROR> :: Job ID: 1 : Failed to execute Role patch_apply on Node winnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-09 18:13:52 :: <INFO> :: Successfully updated job status 'Failed' with Job ID: 1 in database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-09 18:13:52 :: <INFO> :: Task Status successfully marked 'Finished' in database.

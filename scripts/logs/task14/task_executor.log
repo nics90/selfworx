@@ -1,0 +1,101 @@
+2019-09-09 17:52:03 :: <INFO> :: Initialization Variables set successfully.
+2019-09-09 17:52:03 :: <INFO> :: Fetching task details from database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-09 17:52:03 :: <INFO> :: Successfully fetched task details from database.
+2019-09-09 17:52:03 :: <INFO> :: Fetching role name and node list from data file.
+2019-09-09 17:52:03 :: <INFO> :: Successfully fetched role name and node list from data file.
+2019-09-09 17:52:03 :: <INFO> :: Creating role to node mapping from data file.
+2019-09-09 17:52:03 :: <INFO> :: Finished creating role to node mapping from data file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-09 17:52:03 :: <INFO> :: Passing the control over to linux job executor.
+2019-09-09 17:52:03 :: <INFO> :: Initialization Variables set successfully in Job Executor.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-09 17:52:04 :: <INFO> :: Task Status successfully marked 'Running' in database.
+2019-09-09 17:52:04 :: <INFO> :: Traversing jobs from role to node mapping file.
+2019-09-09 17:52:04 :: <INFO> :: Successfully fetched job id, role name or node name from role to node mapping file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-09 17:52:04 :: <INFO> :: Successfully created job with Job ID: 1 in database.
+2019-09-09 17:52:09 :: <INFO> :: Successfully found activity directory.
+2019-09-09 17:52:31 :: <INFO> :: Job ID: 1 : Executing Role patch_apply on Node linuxnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-09 17:52:31 :: <INFO> :: Successfully updated job status 'Executing' with Job ID: 1 in database.
+linuxnode1 Starting Chef Client, version 14.13.11[0m
+linuxnode1 [2019-09-09T17:52:46+00:00] INFO: *** Chef 14.13.11 ***
+linuxnode1 [2019-09-09T17:52:46+00:00] INFO: Platform: x86_64-linux
+linuxnode1 [2019-09-09T17:52:46+00:00] INFO: Chef-client pid: 3464
+linuxnode1 [2019-09-09T17:52:46+00:00] INFO: The plugin path /etc/chef/ohai/plugins does not exist. Skipping...
+linuxnode1 [2019-09-09T17:52:53+00:00] INFO: Setting the run_list to [#<Chef::RunList::RunListItem:0x0000000003e9a770 @version=nil, @type=:role, @name="patch_apply">] from CLI options
+linuxnode1 [2019-09-09T17:52:53+00:00] INFO: Run List is [role[patch_apply]]
+linuxnode1 [2019-09-09T17:52:53+00:00] INFO: Run List expands to [selfworx_win_config::patch_apply]
+linuxnode1 [2019-09-09T17:52:53+00:00] INFO: Starting Chef Run for linuxnode1
+linuxnode1 [2019-09-09T17:52:53+00:00] INFO: Running start handlers
+linuxnode1 [2019-09-09T17:52:53+00:00] INFO: Start handlers complete.
+linuxnode1 [2019-09-09T17:52:53+00:00] INFO: Error while reporting run start to Data Collector. URL: https://chefserver.selfworx.com/organizations/selfworx/data-collector Exception: 404 -- 404 "Not Found"  (This is normal if you do not have Chef Automate)
+linuxnode1 resolving cookbooks for run list: ["selfworx_win_config::patch_apply"][0m
+linuxnode1 [2019-09-09T17:52:53+00:00] INFO: Loading cookbooks [selfworx_win_config@0.1.0]
+linuxnode1 Synchronizing Cookbooks:[0m
+linuxnode1 [2019-09-09T17:52:54+00:00] INFO: Storing updated cookbooks/selfworx_win_config/recipes/patch_apply.rb in the cache.
+linuxnode1   - selfworx_win_config (0.1.0)[0m
+linuxnode1 Installing Cookbook Gems:[0m
+linuxnode1 Compiling Cookbooks...[0m
+linuxnode1 [2019-09-09T17:52:54+00:00] INFO: Downloading patch kb4499151.msu
+linuxnode1 [0m
+linuxnode1 ================================================================================[0m
+linuxnode1 [31mRecipe Compile Error in /var/chef/cache/cookbooks/selfworx_win_config/recipes/patch_apply.rb[0m
+linuxnode1 ================================================================================[0m
+linuxnode1 
+linuxnode1 [0mChef::Exceptions::ValidationFailed[0m
+linuxnode1 ----------------------------------[0m
+linuxnode1 name is a required property[0m
+linuxnode1 
+linuxnode1 [0mCookbook Trace:[0m
+linuxnode1 ---------------[0m
+linuxnode1   /var/chef/cache/cookbooks/selfworx_win_config/recipes/patch_apply.rb:38:in `block in from_file'
+linuxnode1 [0m  /var/chef/cache/cookbooks/selfworx_win_config/recipes/patch_apply.rb:27:in `each'
+linuxnode1 [0m  /var/chef/cache/cookbooks/selfworx_win_config/recipes/patch_apply.rb:27:in `from_file'[0m
+linuxnode1 
+linuxnode1 [0mRelevant File Content:[0m
+linuxnode1 ----------------------[0m
+linuxnode1 /var/chef/cache/cookbooks/selfworx_win_config/recipes/patch_apply.rb:
+linuxnode1 [0m
+linuxnode1 [0m 31:          source "#{patch_remote_loc}/#{patch}"
+linuxnode1 [0m 32:  	    remote_user "anonymous"
+linuxnode1 [0m 33:  	    remote_password ""
+linuxnode1 [0m 34:          retries 3
+linuxnode1 [0m 35:      end
+linuxnode1 [0m 36:  
+linuxnode1 [0m 37:      #Create a list to be used by powershell
+linuxnode1 [0m 38>>   ruby_block do
+linuxnode1 [0m 39:      block do
+linuxnode1 [0m 40:      if patch_list_script.empty?
+linuxnode1 [0m 41:          patch_list_script = "\"" + "#{Chef::Config[:file_cache_path]}/#{patch}" + "\""
+linuxnode1 [0m 42:      else
+linuxnode1 [0m 43:          patch_list_script = patch_list_script + ", " + "\"" + "#{Chef::Config[:file_cache_path]}/#{patch}" + "\""
+linuxnode1 [0m 44:      end
+linuxnode1 [0m 45:      end
+linuxnode1 [0m 46:     end
+linuxnode1 [0m 47:  end
+linuxnode1 [0m
+linuxnode1 [0mSystem Info:[0m
+linuxnode1 ------------[0m
+linuxnode1 chef_version=14.13.11
+linuxnode1 [0mplatform=centos
+linuxnode1 [0mplatform_version=7.6.1810
+linuxnode1 [0mruby=ruby 2.5.5p157 (2019-03-15 revision 67260) [x86_64-linux]
+linuxnode1 [0mprogram_name=/usr/bin/chef-client
+linuxnode1 [0mexecutable=/opt/chef/bin/chef-client[0m
+linuxnode1 
+linuxnode1 [0m[0m
+linuxnode1 Running handlers:[0m
+linuxnode1 [2019-09-09T17:52:54+00:00] ERROR: Running exception handlers
+linuxnode1 Running handlers complete
+linuxnode1 [0m[2019-09-09T17:52:54+00:00] ERROR: Exception handlers complete
+linuxnode1 Chef Client failed. 0 resources updated in 07 seconds[0m
+linuxnode1 [2019-09-09T17:52:54+00:00] FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
+linuxnode1 [2019-09-09T17:52:54+00:00] FATAL: Please provide the contents of the stacktrace.out file if you file a bug report
+linuxnode1 [2019-09-09T17:52:54+00:00] FATAL: Chef::Exceptions::ValidationFailed: name is a required property
+2019-09-09 17:52:54 :: <ERROR> :: Job ID: 1 : Failed to execute Role patch_apply on Node linuxnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-09 17:52:54 :: <INFO> :: Successfully updated job status 'Failed' with Job ID: 1 in database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-09 17:52:54 :: <INFO> :: Task Status successfully marked 'Finished' in database.

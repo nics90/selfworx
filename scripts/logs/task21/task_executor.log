@@ -1,0 +1,129 @@
+2019-09-17 17:30:11 :: <INFO> :: Initialization Variables set successfully.
+2019-09-17 17:30:11 :: <INFO> :: Fetching task details from database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 17:30:11 :: <INFO> :: Successfully fetched task details from database.
+2019-09-17 17:30:11 :: <INFO> :: Fetching role name and node list from data file.
+2019-09-17 17:30:11 :: <INFO> :: Successfully fetched role name and node list from data file.
+2019-09-17 17:30:11 :: <INFO> :: Creating role to node mapping from data file.
+2019-09-17 17:30:11 :: <INFO> :: Finished creating role to node mapping from data file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 17:30:11 :: <INFO> :: Passing the control over to windows job executor.
+2019-09-17 17:30:12 :: <INFO> :: Initialization Variables set successfully in Job Executor.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 17:30:12 :: <INFO> :: Task Status successfully marked 'Running' in database.
+2019-09-17 17:30:12 :: <INFO> :: Traversing jobs from role to node mapping file.
+2019-09-17 17:30:12 :: <INFO> :: Successfully fetched job id, role name or node name from role to node mapping file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 17:30:12 :: <INFO> :: Successfully created job with Job ID: 1 in database.
+2019-09-17 17:30:13 :: <INFO> :: Successfully found activity directory.
+2019-09-17 17:30:35 :: <INFO> :: Job ID: 1 : Executing Role apply_patch on Node winnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 17:30:35 :: <INFO> :: Successfully updated job status 'Executing' with Job ID: 1 in database.
+winnode1 Starting Chef Client, version 14.12.9[0m
+winnode1 
+winnode1 [2019-09-17T17:30:57+00:00] INFO: *** Chef 14.12.9 ***
+winnode1 [2019-09-17T17:30:57+00:00] INFO: Platform: x64-mingw32
+winnode1 [2019-09-17T17:30:57+00:00] INFO: Chef-client pid: 3008
+winnode1 [2019-09-17T17:30:57+00:00] INFO: The plugin path C:\chef\ohai\plugins does not exist. Skipping...
+winnode1 [2019-09-17T17:31:04+00:00] INFO: Setting the run_list to [#<Chef::RunList::RunListItem:0x00000000041fbd10 @version=nil, @type=:role, @name="apply_patch">] from CLI options
+winnode1 [2019-09-17T17:31:04+00:00] INFO: Run List is [role[apply_patch]]
+winnode1 [2019-09-17T17:31:04+00:00] INFO: Run List expands to [selfworx_win_config::patch_apply]
+winnode1 [2019-09-17T17:31:04+00:00] INFO: Starting Chef Run for winnode1
+winnode1 [2019-09-17T17:31:04+00:00] INFO: Running start handlers
+winnode1 [2019-09-17T17:31:04+00:00] INFO: Start handlers complete.
+winnode1 [2019-09-17T17:31:04+00:00] INFO: Error while reporting run start to Data Collector. URL: https://chefserver.selfworx.com/organizations/selfworx/data-collector Exception: 404 -- 404 "Not Found"  (This is normal if you do not have Chef Automate)
+winnode1 resolving cookbooks for run list: ["selfworx_win_config::patch_apply"][0m
+winnode1 [2019-09-17T17:31:04+00:00] INFO: Loading cookbooks [selfworx_win_config@0.1.0]
+winnode1 Synchronizing Cookbooks:[0m
+winnode1 
+winnode1   - selfworx_win_config (0.1.0)[0m
+winnode1 Installing Cookbook Gems:[0m
+winnode1 Compiling Cookbooks...[0m
+winnode1 
+winnode1 [2019-09-17T17:31:05+00:00] INFO: Downloading patch kb4499151.msu
+winnode1 Converging 6 resources[0m
+winnode1 
+winnode1 Recipe: selfworx_win_config::patch_apply[0m
+winnode1   * directory[C:/Temp/PatchInstall/logs] action create[2019-09-17T17:31:05+00:00] INFO: Processing directory[C:/Temp/PatchInstall/logs] action create (selfworx_win_config::patch_apply line 22)
+winnode1  (up to date)
+winnode1   * remote_file[c:/chef/cache/kb4499151.msu] action create[2019-09-17T17:31:05+00:00] INFO: Processing remote_file[c:/chef/cache/kb4499151.msu] action create (selfworx_win_config::patch_apply line 31)
+winnode1 [2019-09-17T17:31:05+00:00] WARN: remote_file[c:/chef/cache/kb4499151.msu] cannot be downloaded from ftp://1.1.1.71/kb4499151.msu: 550 Failed to open file.
+winnode1 
+winnode1 [2019-09-17T17:31:05+00:00] INFO: Retrying execution of remote_file[c:/chef/cache/kb4499151.msu], 2 attempts left
+winnode1 [2019-09-17T17:31:07+00:00] WARN: remote_file[c:/chef/cache/kb4499151.msu] cannot be downloaded from ftp://1.1.1.71/kb4499151.msu: 550 Failed to open file.
+winnode1 
+winnode1 [2019-09-17T17:31:07+00:00] INFO: Retrying execution of remote_file[c:/chef/cache/kb4499151.msu], 1 attempt left
+winnode1 [2019-09-17T17:31:09+00:00] WARN: remote_file[c:/chef/cache/kb4499151.msu] cannot be downloaded from ftp://1.1.1.71/kb4499151.msu: 550 Failed to open file.
+winnode1 
+winnode1 [2019-09-17T17:31:09+00:00] INFO: Retrying execution of remote_file[c:/chef/cache/kb4499151.msu], 0 attempt left
+winnode1 [2019-09-17T17:31:11+00:00] WARN: remote_file[c:/chef/cache/kb4499151.msu] cannot be downloaded from ftp://1.1.1.71/kb4499151.msu: 550 Failed to open file.
+winnode1 
+winnode1 
+winnode1     [0m
+winnode1     ================================================================================[0m
+winnode1     [31mError executing action `create` on resource 'remote_file[c:/chef/cache/kb4499151.msu]'[0m
+winnode1     ================================================================================[0m
+winnode1     
+winnode1 [0m    Net::FTPPermError[0m
+winnode1     -----------------[0m
+winnode1     550 Failed to open file.
+winnode1 [0m    
+winnode1 [0m    Resource Declaration:[0m
+winnode1     ---------------------[0m
+winnode1     # In c:/chef/cache/cookbooks/selfworx_win_config/recipes/patch_apply.rb
+winnode1 [0m    
+winnode1 [0m     31:     remote_file "#{Chef::Config[:file_cache_path]}/#{patch}" do
+winnode1 [0m     32:         source "#{patch_remote_loc}/#{patch}"
+winnode1 [0m     33: 	    remote_user "anonymous"
+winnode1 [0m     34: 	    remote_password ""
+winnode1 [0m     35:         retries 3
+winnode1 [0m     36:     end
+winnode1 [0m     37: 
+winnode1 [0m    
+winnode1 [0m    Compiled Resource:[0m
+winnode1     ------------------[0m
+winnode1     # Declared in c:/chef/cache/cookbooks/selfworx_win_config/recipes/patch_apply.rb:31:in `block in from_file'
+winnode1 [0m    
+winnode1 [0m    remote_file("c:/chef/cache/kb4499151.msu") do
+winnode1 [0m      action [:create]
+winnode1 [0m      default_guard_interpreter :default
+winnode1 [0m      source ["ftp://1.1.1.71/kb4499151.msu"]
+winnode1 [0m      declared_type :remote_file
+winnode1 [0m      cookbook_name "selfworx_win_config"
+winnode1 [0m      recipe_name "patch_apply"
+winnode1 [0m      remote_user "anonymous"
+winnode1 [0m      remote_password "*sensitive value suppressed*"
+winnode1 [0m      retries 3
+winnode1 [0m      remote_domain nil
+winnode1 [0m      path "c:/chef/cache/kb4499151.msu"
+winnode1 [0m      rights nil
+winnode1 [0m      deny_rights nil
+winnode1 [0m      verifications []
+winnode1 [0m      headers {}
+winnode1 [0m    end
+winnode1 [0m    
+winnode1 [0m    System Info:[0m
+winnode1     ------------[0m
+winnode1     chef_version=14.12.9
+winnode1 [0m    platform=windows
+winnode1 [0m    platform_version=6.3.9600
+winnode1 [0m    ruby=ruby 2.5.5p157 (2019-03-15 revision 67260) [x64-mingw32]
+winnode1 [0m    program_name=C:/opscode/chef/bin/chef-client
+winnode1 [0m    executable=C:/opscode/chef/bin/chef-client[0m
+winnode1     
+winnode1 [0m[2019-09-17T17:31:11+00:00] INFO: Running queued delayed notifications before re-raising exception
+winnode1 [0m
+winnode1 Running handlers:[0m
+winnode1 [2019-09-17T17:31:11+00:00] ERROR: Running exception handlers
+winnode1 Running handlers complete
+winnode1 [0m[2019-09-17T17:31:11+00:00] ERROR: Exception handlers complete
+winnode1 Chef Client failed. 0 resources updated in 14 seconds[0m
+winnode1 [2019-09-17T17:31:11+00:00] FATAL: Stacktrace dumped to c:/chef/cache/chef-stacktrace.out
+winnode1 [2019-09-17T17:31:11+00:00] FATAL: Please provide the contents of the stacktrace.out file if you file a bug report
+winnode1 [2019-09-17T17:31:11+00:00] FATAL: Net::FTPPermError: remote_file[c:/chef/cache/kb4499151.msu] (selfworx_win_config::patch_apply line 31) had an error: Net::FTPPermError: 550 Failed to open file.
+winnode1 
+2019-09-17 17:31:11 :: <ERROR> :: Job ID: 1 : Failed to execute Role apply_patch on Node winnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 17:31:11 :: <INFO> :: Successfully updated job status 'Failed' with Job ID: 1 in database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 17:31:11 :: <INFO> :: Task Status successfully marked 'Finished' in database.

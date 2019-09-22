@@ -1,0 +1,5 @@
+server1,server1.tg.com,10.1.1.2,RHEL6.5,virtual
+server2,server2.tg.com,10.1.1.3,RHEL7.5,virtual
+server3,server3.tg.com,10.1.1.4,RHEL6.1,virtual
+server4,server4.tg.com,10.1.1.5,RHEL6.2,virtual
+server5,server5.tg.com,10.1.1.5,RHEL6.2,virtual

@@ -1,0 +1,26 @@
+2019-09-17 17:19:01 :: <INFO> :: Initialization Variables set successfully.
+2019-09-17 17:19:01 :: <INFO> :: Fetching task details from database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 17:19:01 :: <INFO> :: Successfully fetched task details from database.
+2019-09-17 17:19:01 :: <INFO> :: Fetching role name and node list from data file.
+2019-09-17 17:19:01 :: <INFO> :: Successfully fetched role name and node list from data file.
+2019-09-17 17:19:01 :: <INFO> :: Creating role to node mapping from data file.
+2019-09-17 17:19:01 :: <INFO> :: Finished creating role to node mapping from data file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 17:19:01 :: <INFO> :: Passing the control over to windows job executor.
+2019-09-17 17:19:01 :: <INFO> :: Initialization Variables set successfully in Job Executor.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 17:19:01 :: <INFO> :: Task Status successfully marked 'Running' in database.
+2019-09-17 17:19:01 :: <INFO> :: Traversing jobs from role to node mapping file.
+2019-09-17 17:19:01 :: <INFO> :: Successfully fetched job id, role name or node name from role to node mapping file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 17:19:01 :: <INFO> :: Successfully created job with Job ID: 1 in database.
+2019-09-17 17:19:02 :: <INFO> :: Successfully found activity directory.
+2019-09-17 17:19:30 :: <INFO> :: Job ID: 1 : Executing Role patch_apply on Node winnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 17:19:30 :: <INFO> :: Successfully updated job status 'Executing' with Job ID: 1 in database.
+2019-09-17 17:20:28 :: <ERROR> :: Job ID: 1 : Failed to execute Role patch_apply on Node winnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 17:20:28 :: <INFO> :: Successfully updated job status 'Failed' with Job ID: 1 in database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 17:20:28 :: <INFO> :: Task Status successfully marked 'Finished' in database.

@@ -1,0 +1,97 @@
+2019-09-17 18:05:56 :: <INFO> :: Initialization Variables set successfully.
+2019-09-17 18:05:56 :: <INFO> :: Fetching task details from database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 18:05:56 :: <INFO> :: Successfully fetched task details from database.
+2019-09-17 18:05:56 :: <INFO> :: Fetching role name and node list from data file.
+2019-09-17 18:05:56 :: <INFO> :: Successfully fetched role name and node list from data file.
+2019-09-17 18:05:56 :: <INFO> :: Creating role to node mapping from data file.
+2019-09-17 18:05:56 :: <INFO> :: Finished creating role to node mapping from data file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 18:05:56 :: <INFO> :: Passing the control over to windows job executor.
+2019-09-17 18:05:56 :: <INFO> :: Initialization Variables set successfully in Job Executor.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 18:05:56 :: <INFO> :: Task Status successfully marked 'Running' in database.
+2019-09-17 18:05:56 :: <INFO> :: Traversing jobs from role to node mapping file.
+2019-09-17 18:05:56 :: <INFO> :: Successfully fetched job id, role name or node name from role to node mapping file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 18:05:56 :: <INFO> :: Successfully created job with Job ID: 1 in database.
+2019-09-17 18:05:57 :: <INFO> :: Successfully found activity directory.
+2019-09-17 18:06:10 :: <INFO> :: Job ID: 1 : Executing Role patch_apply on Node winnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 18:06:10 :: <INFO> :: Successfully updated job status 'Executing' with Job ID: 1 in database.
+winnode1 Starting Chef Client, version 14.12.9[0m
+winnode1 
+winnode1 [2019-09-17T18:06:24+00:00] INFO: *** Chef 14.12.9 ***
+winnode1 [2019-09-17T18:06:24+00:00] INFO: Platform: x64-mingw32
+winnode1 [2019-09-17T18:06:24+00:00] INFO: Chef-client pid: 1276
+winnode1 [2019-09-17T18:06:24+00:00] INFO: The plugin path C:\chef\ohai\plugins does not exist. Skipping...
+winnode1 [2019-09-17T18:06:28+00:00] INFO: Setting the run_list to [#<Chef::RunList::RunListItem:0x0000000002965260 @version=nil, @type=:role, @name="patch_apply">] from CLI options
+winnode1 [2019-09-17T18:06:28+00:00] INFO: Run List is [role[patch_apply]]
+winnode1 [2019-09-17T18:06:28+00:00] INFO: Run List expands to [selfworx_win_config::patch_apply]
+winnode1 [2019-09-17T18:06:28+00:00] INFO: Starting Chef Run for winnode1
+winnode1 [2019-09-17T18:06:28+00:00] INFO: Running start handlers
+winnode1 [2019-09-17T18:06:28+00:00] INFO: Start handlers complete.
+winnode1 [2019-09-17T18:06:29+00:00] INFO: Error while reporting run start to Data Collector. URL: https://chefserver.selfworx.com/organizations/selfworx/data-collector Exception: 404 -- 404 "Not Found"  (This is normal if you do not have Chef Automate)
+winnode1 resolving cookbooks for run list: ["selfworx_win_config::patch_apply"][0m
+winnode1 [2019-09-17T18:06:29+00:00] INFO: Loading cookbooks [selfworx_win_config@0.1.0]
+winnode1 Synchronizing Cookbooks:[0m
+winnode1 
+winnode1 [2019-09-17T18:06:29+00:00] INFO: Storing updated cookbooks/selfworx_win_config/recipes/patch_apply.rb in the cache.
+winnode1   - selfworx_win_config (0.1.0)[0m
+winnode1 Installing Cookbook Gems:[0m
+winnode1 Compiling Cookbooks...[0m
+winnode1 [2019-09-17T18:06:29+00:00] INFO: Downloading patch kb4499151.msu
+winnode1 [2019-09-17T18:06:29+00:00] INFO: Downloading patch kb4040974.msu
+winnode1 Converging 6 resources[0m
+winnode1 
+winnode1 Recipe: selfworx_win_config::patch_apply[0m
+winnode1   * directory[C:/Temp/PatchInstall/logs] action create[2019-09-17T18:06:29+00:00] INFO: Processing directory[C:/Temp/PatchInstall/logs] action create (selfworx_win_config::patch_apply line 24)
+winnode1  (up to date)
+winnode1   * remote_file[c:/chef/cache/kb4499151.msu] action create[2019-09-17T18:06:29+00:00] INFO: Processing remote_file[c:/chef/cache/kb4499151.msu] action create (selfworx_win_config::patch_apply line 33)
+winnode1 [2019-09-17T18:06:36+00:00] INFO: remote_file[c:/chef/cache/kb4499151.msu] created file c:/chef/cache/kb4499151.msu
+winnode1 
+winnode1     [32m- create new file c:/chef/cache/kb4499151.msu[0m
+winnode1 [2019-09-17T18:06:38+00:00] INFO: remote_file[c:/chef/cache/kb4499151.msu] updated file contents c:/chef/cache/kb4499151.msu
+winnode1 
+winnode1     [32m- update content in file c:/chef/cache/kb4499151.msu from none to ac26b6[0m
+winnode1     [37m(file sizes exceed 10000000 bytes, diff output suppressed)[0m
+winnode1 [0m  * remote_file[c:/chef/cache/kb4040974.msu] action create
+winnode1 [2019-09-17T18:06:40+00:00] INFO: Processing remote_file[c:/chef/cache/kb4040974.msu] action create (selfworx_win_config::patch_apply line 33)
+winnode1 [2019-09-17T18:06:41+00:00] INFO: remote_file[c:/chef/cache/kb4040974.msu] created file c:/chef/cache/kb4040974.msu
+winnode1 
+winnode1     [32m- create new file c:/chef/cache/kb4040974.msu[0m
+winnode1 [2019-09-17T18:06:42+00:00] INFO: remote_file[c:/chef/cache/kb4040974.msu] updated file contents c:/chef/cache/kb4040974.msu
+winnode1 
+winnode1     [32m- update content in file c:/chef/cache/kb4040974.msu from none to d8b78e[0m
+winnode1     [37m(file sizes exceed 10000000 bytes, diff output suppressed)[0m
+winnode1 [0m  * template[c:/chef/cache\patchApply.ps1] action create[2019-09-17T18:06:42+00:00] INFO: Processing template[c:/chef/cache\patchApply.ps1] action create (selfworx_win_config::patch_apply line 67)
+winnode1 [2019-09-17T18:06:42+00:00] INFO: template[c:/chef/cache\patchApply.ps1] created file c:/chef/cache\patchApply.ps1
+winnode1 
+winnode1     [32m- create new file c:/chef/cache\patchApply.ps1[0m
+winnode1 [2019-09-17T18:06:42+00:00] INFO: template[c:/chef/cache\patchApply.ps1] updated file contents c:/chef/cache\patchApply.ps1
+winnode1 
+winnode1     [32m- update content in file c:/chef/cache\patchApply.ps1 from none to cd6426[0m
+winnode1     [32m- suppressed sensitive resource[0m
+winnode1 [0m  * windows_task[Patch Apply] action create[2019-09-17T18:06:42+00:00] INFO: Processing windows_task[Patch Apply] action create (selfworx_win_config::patch_apply line 75)
+winnode1 
+winnode1     [32m- windows_task[Patch Apply] task created[0m
+winnode1 [0m  * windows_task[Patch Apply] action run[2019-09-17T18:06:42+00:00] INFO: Processing windows_task[Patch Apply] action run (selfworx_win_config::patch_apply line 75)
+winnode1 
+winnode1     [32m- run scheduled task windows_task[Patch Apply][0m
+winnode1 [0m  * ruby_block[Waiting for the task to start] action run[2019-09-17T18:06:42+00:00] INFO: Processing ruby_block[Waiting for the task to start] action run (selfworx_win_config::patch_apply line 83)
+winnode1 [2019-09-17T18:06:52+00:00] INFO: ruby_block[Waiting for the task to start] called
+winnode1 
+winnode1     [32m- execute the ruby block Waiting for the task to start[0m
+winnode1 [0m
+winnode1 [2019-09-17T18:06:52+00:00] INFO: Chef Run complete in 23.796851 seconds
+winnode1 [0m
+winnode1 Running handlers:[0m
+winnode1 [2019-09-17T18:06:52+00:00] INFO: Running report handlers
+winnode1 Running handlers complete
+winnode1 [0m[2019-09-17T18:06:52+00:00] INFO: Report handlers complete
+winnode1 Chef Client finished, 6/7 resources updated in 28 seconds[0m
+2019-09-17 18:06:52 :: <INFO> :: Job ID: 1 : Successfully executed Role patch_apply on Node winnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 18:06:52 :: <INFO> :: Successfully updated job status 'Completed' with Job ID: 1 in database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-17 18:06:52 :: <INFO> :: Task Status successfully marked 'Finished' in database.

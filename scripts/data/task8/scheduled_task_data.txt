@@ -1,0 +1,2 @@
+task_id	target_group_name	target_env_name	target_node_list	target_role_name	task_status	task_scheduled_time
+8	LINUX1	DEV	linuxnode1	test_ritu	Running	2019-09-09 03:38:00

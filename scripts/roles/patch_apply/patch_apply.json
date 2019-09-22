@@ -1,0 +1,8 @@
+{
+    "name": "patch_apply",
+    "description": "Patching",
+    "run_list": [
+        "role[windows_patch_apply]",
+        "role[windows_patch_apply]"
+    ]
+}

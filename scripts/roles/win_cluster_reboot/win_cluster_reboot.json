@@ -1,0 +1,7 @@
+{
+    "name": "win_cluster_reboot",
+    "description": "Windows Cluster Reboot",
+    "run_list": [
+        "role[windows_server_reboot]"
+    ]
+}

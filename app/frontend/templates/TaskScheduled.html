@@ -1,0 +1,64 @@
+{%  extends "base.html" %}
+{% block side %}
+
+<!-- Jquery JS-->
+<script src="{{ url_for('frontend.static', filename='vendor/jquery-3.2.1.min.js')}}"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#display_scheduled_task').DataTable( {
+              "processing" : true,
+  		    "ajax" : {
+  			   //"url" : 'static/data.json',
+  			   "url" : '/api/getScheduledTask',
+  			   "dataType" : "json"
+  			   },
+  			  "columns" : [
+  			 {"data" : "task_id"},
+  			 {"data": "target_group_name"},
+  			 {"data": "target_env_name" },
+  			 {"data": "target_node_list" },
+  			 {"data": "target_role_name" },
+  			 {"data": "task_status" },
+         {"data": "task_scheduled_time" }
+  			  ]
+  			  }
+  		  );
+  });
+</script>
+                        <!-- MAIN CONTENT-->
+                              <div class="main-content">
+                                  <div class="section__content section__content--p30">
+                                      <div class="container-fluid">
+                                        <div class="row">
+                              <div class="col-lg-9">
+                                <div class="table-responsive m-b-90">
+                                  <table class="table table-striped" id="display_scheduled_task">
+                                        <thead class="thead-dark">
+                                            <tr style="">
+                                              <th>Task ID</th>
+                                              <th>Group Name</th>
+                                              <th>Environment</th>
+                                              <th>Node List</th>
+                                              <th>Activity</th>
+                                              <th>Status</th>
+                                              <th>Scheduled Time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="output">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                          </div>
+                                        <div class="row copyright-footer">
+                                              <div class="col-md-12">
+                                                  <div class="copyright">
+                                                      <p>Copyright © 2018 Colorlib. </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- END MAIN CONTENT-->
+{% endblock %}

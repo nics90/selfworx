@@ -1,0 +1,8 @@
+{
+    "name": "jmd_patch",
+    "description": "test",
+    "run_list": [
+        "role[windows_patch_apply]",
+        "role[windows_server_reboot]"
+    ]
+}

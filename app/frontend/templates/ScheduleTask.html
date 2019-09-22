@@ -1,0 +1,293 @@
+{%  extends "base.html" %}
+{% block side %}
+
+<!-- Jquery JS-->
+<script src="{{ url_for('frontend.static', filename='vendor/jquery-3.2.1.min.js')}}"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+   $('button').click(function() {
+          $.ajax({
+              url: '/api/scheduleTask',
+              data: $('form').serialize(),
+              type: 'POST',
+  			      success: function(response) {
+              //console.log(response);
+  				    response = JSON.parse(response)
+  				        if ( response.redirect == "true" ) {
+  				              alert('Successfully Scheduled the Task.');
+  				              window.location.href = response.redirect_url;
+  					          }
+  				        else {
+  				              //console.log(response);
+  				              alert("Please fill all the values and then schedule the task");
+  				             }
+  			              },
+              error: function(error) {
+                        console.log(error);
+  				              alert('Some Error occurred while scheduling the task');
+                      }
+  			    });
+      });
+  });
+  </script>
+
+<script type="text/javascript">
+      $(document).ready(function(){
+          $('#target_env_dropdown').on("change",function(){
+          var selected_group  = $('#target_group_dropdown').find(":selected").val();
+          var selected_env  = $('#target_env_dropdown').find(":selected").val();
+          //console.log(selected_group,selected_env);
+          $.ajax({
+                url: '/api/getTargetGroupEnvNode',
+                //data: $('form').serialize(),
+                data: {'target_group': selected_group,'target_env':selected_env },
+                type: 'POST',
+                success: function(result)
+                {
+                    $('#target_nodelist_dropdown').html('');
+                    $('#target_nodelist_dropdown').append('<option value="">' + "Select Node List" + '</option>');
+                    if(result != '')
+                    {
+                        // Loop through each of the results and append the option to the dropdown
+                        $.each(result, function(k,v) {
+                        for(i=0;i<v.length;i++)
+                            {
+                              //  console.log(v[i]);
+                              $('#target_nodelist_dropdown').append('<option value="' + v[i].target_node_list + '">' + v[i].target_node_list + '</option>');
+                            }
+                      });
+                    }
+                }
+        });
+});
+
+// ------------ Group Helper Starts------------------------------
+  var helpers_group =
+    {
+          buildDropdown: function(result, dropdown, emptyMessage)
+       {
+              // Remove current options
+              //console.log(result);
+              dropdown.html('');
+              // Add the empty option with the empty message
+              dropdown.append('<option value="">' + emptyMessage + '</option>');
+              // Check result isnt empty
+              if(result != '')
+                    {
+                    // Loop through each of the results and append the option to the dropdown
+                    $.each(result, function(k,v) {
+                    for(i=0;i<v.length;i++)
+                        {
+                            //console.log(v[i]);
+                            dropdown.append('<option value="' + v[i].target_group_name + '">' + v[i].target_group_name + '</option>');
+                        }
+                      });
+                    }
+              }
+ }
+          $.ajax({
+              url: '/api/getTargetGroup',
+              data: $('form').serialize(),
+              type: 'GET',
+              success: function(data)
+               {
+                    //console.log(data);
+                    helpers_group.buildDropdown(
+                    //jQuery.parseJSON(data),
+                    data,
+                    $('#target_group_dropdown'),
+                      'Select a Group'
+                    );
+              }
+        });
+// ------------ Group Helper Ends------------------------------
+
+// ------------ Env Helper Starts------------------------------
+        var helpers_env =
+          {
+              buildDropdown: function(result, dropdown, emptyMessage)
+              {
+                // Remove current options
+                //console.log(result);
+                dropdown.html('');
+                // Add the empty option with the empty message
+                dropdown.append('<option value="">' + emptyMessage + '</option>');
+                // Check result isnt empty
+                if(result != '')
+                  {
+                   // Loop through each of the results and append the option to the dropdown
+                   $.each(result, function(k,v) {
+                     for(i=0;i<v.length;i++)
+                       {
+                         //console.log(v[i]);
+                         dropdown.append('<option value="' + v[i].target_env_name + '">' + v[i].target_env_name + '</option>');
+                      }
+                   });
+                 }
+           }
+        }
+              $.ajax({
+                  url: '/api/getTargetEnv',
+                  data: $('form').serialize(),
+                  type: 'GET',
+                  success: function(data)
+                     {
+                          //console.log(data);
+                          helpers_env.buildDropdown(
+                          //jQuery.parseJSON(data),
+                          data,
+                          $('#target_env_dropdown'),
+                          'Select an Environment'
+                      );
+                  }
+              });
+// ------------ Env Helper Ends------------------------------
+// ------------ NodeList Helper Starts------------------------------
+        var helpers_nodelist =
+        {
+            buildDropdown: function(result, dropdown, emptyMessage)
+            {
+               // Remove current options
+               //console.log(result);
+               dropdown.html('');
+               // Add the empty option with the empty message
+               dropdown.append('<option value="">' + emptyMessage + '</option>');
+               // Check result isnt empty
+               if(result != '')
+                {
+                   // Loop through each of the results and append the option to the dropdown
+                   $.each(result, function(k,v) {
+                     for(i=0;i<v.length;i++)
+                       {
+                          //console.log(v[i]);
+                         dropdown.append('<option value="' + v[i].target_node_list + '">' + v[i].target_node_list + '</option>');
+                       }
+                   });
+                 }
+             }
+        }
+              $.ajax({
+                  url: '/api/getTargetNodeList',
+                  data: $('form').serialize(),
+                  type: 'GET',
+                  success: function(data)
+                     {
+                          //console.log(data);
+                          helpers_nodelist.buildDropdown(
+                          //jQuery.parseJSON(data),
+                          data,
+                          $('#target_nodelist_dropdown'),
+                          'Select Node List'
+                      );
+                  }
+              });
+// ------------ NodeList Helper Ends------------------------------
+// ------------ Role Helper Starts------------------------------
+        var helpers_role =
+        {
+           buildDropdown: function(result, dropdown1, dropdown2, emptyMessage)
+           {
+               // Remove current options
+               //console.log(result);
+               dropdown1.html('');
+               dropdown2.html('');
+               // Add the empty option with the empty message
+               dropdown1.append('<option value="">' + emptyMessage + '</option>');
+               dropdown2.append('<option value="">' + emptyMessage + '</option>');
+               // Check result isnt empty
+               if(result != '')
+               {
+                   // Loop through each of the results and append the option to the dropdown
+                   $.each(result, function(k,v) {
+                     for(i=0;i<v.length;i++)
+                       {
+                       //console.log(v[i]);
+                       dropdown1.append('<option value="' + v[i].target_role_name + '">' + v[i].target_role_display_name + '</option>');
+                       dropdown2.append('<option value="' + v[i].target_role_name + '">' + v[i].target_role_name + '</option>');
+                     }
+                   });
+               }
+           }
+        }
+              $.ajax({
+                  url: '/api/getTargetRole',
+                  data: $('form').serialize(),
+                  type: 'GET',
+                  success: function(data)
+                     {
+                          //console.log(data);
+                          helpers_role.buildDropdown(
+                          //jQuery.parseJSON(data),
+                          data,
+                          $('#target_role_dropdown'),
+                          $('#target_rolename_dropdown'),
+                          'Select an Activity'
+                      );
+                  }
+              });
+// ------------ Role Helper Ends------------------------------
+});
+</script>
+
+                        <!-- MAIN CONTENT-->
+                              <div class="main-content">
+                                  <div class="section__content section__content--p30">
+                                      <div class="container-fluid">
+                                        <div class="row">
+                                          <div class="card-body">
+                                              <div class="card-title">
+                                                  <h3 class="text-center title-2">Schedule Task</h3>
+                                              </div>
+                                              <hr>
+                                              <form action="" method="post" novalidate="novalidate">
+                                                  <div class="form-group">
+                                                      <label for="cc-payment" class="control-label mb-1">Group Name</label>
+                                                      <select id="target_group_dropdown" name="target_group_name" class="form-control"></select>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label for="cc-payment" class="control-label mb-1">Environment</label>
+                                                      <select id="target_env_dropdown" name="target_env_name" class="form-control"></select>
+                                                  </div>
+                                                  <div class="form-group has-success">
+                                                      <label for="cc-name" class="control-label mb-1">Node List</label>
+                                                       <select id="target_nodelist_dropdown" name="target_node_list" class="form-control"></select>
+                                                      <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label for="cc-payment" class="control-label mb-1">Activity</label>
+                                                      <select id="target_role_dropdown" name="target_role_name" class="form-control"></select>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label for="cc-payment" class="control-label mb-1">Activity Time   </label> <span id="clock"></span> 
+						     <script>
+                                                    var clock = document.getElementById("clock");
+
+                                                    setInterval(() => {
+                                                    fetch("{{ url_for('backend.get_time') }}")
+                                                   .then(response => {
+                                                   response.text().then(t => {clock.innerHTML = t})
+                                                    });
+                                                }, 1000);
+                                                </script>
+                                                      <input type='datetime-local' class="form-control" name="task_scheduled_time" />
+                                                  </div>
+                                                 <div>
+                                                      <button  type="button" class="btn btn-lg btn-info btn-block">Schedule
+                                                      </button>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                          </div>
+                                        <div class="row copyright-footer">
+                                              <div class="col-md-12">
+                                                  <div class="copyright">
+                                                      <p>Copyright © 2018 Colorlib. </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- END MAIN CONTENT-->
+{% endblock %}

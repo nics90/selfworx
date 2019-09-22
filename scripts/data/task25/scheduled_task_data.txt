@@ -1,0 +1,2 @@
+task_id	target_group_name	target_env_name	target_node_list	target_role_name	task_status	task_scheduled_time
+25	WIN1	DEV	winnode1	new_patch	Finished	2019-09-17 18:14:00

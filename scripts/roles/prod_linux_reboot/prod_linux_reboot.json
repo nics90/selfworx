@@ -1,0 +1,7 @@
+{
+    "name": "prod_linux_reboot",
+    "description": "Reboot",
+    "run_list": [
+        "role[linux_server_reboot]"
+    ]
+}

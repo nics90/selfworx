@@ -1,0 +1,85 @@
+2019-09-21 04:51:01 :: <INFO> :: Initialization Variables set successfully.
+2019-09-21 04:51:01 :: <INFO> :: Fetching task details from database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:51:01 :: <INFO> :: Successfully fetched task details from database.
+2019-09-21 04:51:01 :: <INFO> :: Fetching role name and node list from data file.
+2019-09-21 04:51:01 :: <INFO> :: Successfully fetched role name and node list from data file.
+2019-09-21 04:51:01 :: <INFO> :: Creating role to node mapping from data file.
+2019-09-21 04:51:01 :: <INFO> :: Finished creating role to node mapping from data file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:51:01 :: <INFO> :: Passing the control over to linux job executor.
+2019-09-21 04:51:01 :: <INFO> :: Initialization Variables set successfully in Job Executor.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:51:01 :: <INFO> :: Task Status successfully marked 'Running' in database.
+2019-09-21 04:51:01 :: <INFO> :: Traversing jobs from role to node mapping file.
+2019-09-21 04:51:01 :: <INFO> :: Successfully fetched job id, role name or node name from role to node mapping file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:51:01 :: <INFO> :: Successfully created job with Job ID: 1 in database.
+2019-09-21 04:51:07 :: <INFO> :: Successfully found activity directory.
+2019-09-21 04:51:33 :: <INFO> :: Job ID: 1 : Executing Role prod_linux_reboot on Node linuxnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:51:33 :: <INFO> :: Successfully updated job status 'Executing' with Job ID: 1 in database.
+linuxnode1 Starting Chef Client, version 14.13.11[0m
+linuxnode1 [2019-09-21T04:51:51+00:00] INFO: *** Chef 14.13.11 ***
+linuxnode1 [2019-09-21T04:51:51+00:00] INFO: Platform: x86_64-linux
+linuxnode1 [2019-09-21T04:51:51+00:00] INFO: Chef-client pid: 2891
+linuxnode1 [2019-09-21T04:51:51+00:00] INFO: The plugin path /etc/chef/ohai/plugins does not exist. Skipping...
+linuxnode1 [2019-09-21T04:52:05+00:00] INFO: Setting the run_list to [#<Chef::RunList::RunListItem:0x00000000032563d8 @version=nil, @type=:role, @name="prod_linux_reboot">] from CLI options
+linuxnode1 [2019-09-21T04:52:05+00:00] INFO: Run List is [role[prod_linux_reboot]]
+linuxnode1 [2019-09-21T04:52:05+00:00] INFO: Run List expands to [selfworx_linux_config::restart_node]
+linuxnode1 [2019-09-21T04:52:05+00:00] INFO: Starting Chef Run for linuxnode1
+linuxnode1 [2019-09-21T04:52:05+00:00] INFO: Running start handlers
+linuxnode1 [2019-09-21T04:52:05+00:00] INFO: Start handlers complete.
+linuxnode1 [2019-09-21T04:52:05+00:00] INFO: Error while reporting run start to Data Collector. URL: https://chefserver.selfworx.com/organizations/selfworx/data-collector Exception: 404 -- 404 "Not Found"  (This is normal if you do not have Chef Automate)
+linuxnode1 resolving cookbooks for run list: ["selfworx_linux_config::restart_node"][0m
+linuxnode1 [2019-09-21T04:52:05+00:00] INFO: Loading cookbooks [selfworx_linux_config@0.1.0]
+linuxnode1 Synchronizing Cookbooks:[0m
+linuxnode1   - selfworx_linux_config (0.1.0)[0m
+linuxnode1 Installing Cookbook Gems:[0m
+linuxnode1 Compiling Cookbooks...[0m
+linuxnode1 Converging 1 resources[0m
+linuxnode1 Recipe: selfworx_linux_config::restart_node[0m
+linuxnode1   * reboot[linux reboot activity] action request_reboot[2019-09-21T04:52:05+00:00] INFO: Processing reboot[linux reboot activity] action request_reboot (selfworx_linux_config::restart_node line 9)
+linuxnode1 [2019-09-21T04:52:05+00:00] WARN: Reboot requested:'linux reboot activity'
+linuxnode1 [2019-09-21T04:52:05+00:00] INFO: Changing reboot status from {} to {:delay_mins=>1, :reason=>"Selfworx reboot linux activity.", :timestamp=>2019-09-21 04:52:05 +0000, :requested_by=>"linux reboot activity"}
+linuxnode1 
+linuxnode1     [32m- request a system reboot to occur if the run succeeds[0m
+linuxnode1 [0m[2019-09-21T04:52:05+00:00] INFO: Chef Run complete in 0.508069968 seconds
+linuxnode1 [0m
+linuxnode1 Running handlers:[0m
+linuxnode1 [2019-09-21T04:52:05+00:00] INFO: Running report handlers
+linuxnode1 Running handlers complete
+linuxnode1 [0m[2019-09-21T04:52:05+00:00] INFO: Report handlers complete
+linuxnode1 Chef Client finished, 1/1 resources updated in 14 seconds[0m
+linuxnode1 [2019-09-21T04:52:05+00:00] WARN: Rebooting server at a recipe's request. Details: {:delay_mins=>1, :reason=>"Selfworx reboot linux activity.", :timestamp=>2019-09-21 04:52:05 +0000, :requested_by=>"linux reboot activity"}
+linuxnode1 [0m
+linuxnode1 Running handlers:[0m
+linuxnode1 [2019-09-21T04:52:05+00:00] ERROR: Running exception handlers
+linuxnode1 Running handlers complete
+linuxnode1 [0m[2019-09-21T04:52:05+00:00] ERROR: Exception handlers complete
+linuxnode1 Chef Client failed. 1 resources updated in 14 seconds[0m
+linuxnode1 [2019-09-21T04:52:05+00:00] FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
+linuxnode1 [2019-09-21T04:52:05+00:00] FATAL: Please provide the contents of the stacktrace.out file if you file a bug report
+linuxnode1 [2019-09-21T04:52:05+00:00] FATAL: Chef::Exceptions::Reboot: Rebooting server at a recipe's request. Details: {:delay_mins=>1, :reason=>"Selfworx reboot linux activity.", :timestamp=>2019-09-21 04:52:05 +0000, :requested_by=>"linux reboot activity"}
+linuxnode1 
+linuxnode1 Broadcast message from root@linuxnode1 (Sat 2019-09-21 04:52:05 UTC):
+linuxnode1 
+linuxnode1 Selfworx reboot linux activity.
+linuxnode1 The system is going down for reboot at Sat 2019-09-21 04:53:05 UTC!
+linuxnode1 
+2019-09-21 04:52:05 :: <INFO> :: Job ID: 1 : Successfully executed Role prod_linux_reboot on Node linuxnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:52:05 :: <INFO> :: Successfully updated job status 'Completed' with Job ID: 1 in database.
+2019-09-21 04:52:05 :: <INFO> :: Successfully fetched job id, role name or node name from role to node mapping file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:52:05 :: <INFO> :: Successfully created job with Job ID: 2 in database.
+2019-09-21 04:52:11 :: <INFO> :: Successfully found activity directory.
+2019-09-21 04:52:36 :: <INFO> :: Job ID: 2 : Executing Role prod_linux_reboot on Node linuxnode2.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:52:36 :: <INFO> :: Successfully updated job status 'Executing' with Job ID: 2 in database.
+linuxnode2 bash: chef-client: command not found
+2019-09-21 04:52:50 :: <ERROR> :: Job ID: 2 : Failed to execute Role prod_linux_reboot on Node linuxnode2.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:52:50 :: <INFO> :: Successfully updated job status 'Failed' with Job ID: 2 in database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:52:50 :: <INFO> :: Task Status successfully marked 'Finished' in database.

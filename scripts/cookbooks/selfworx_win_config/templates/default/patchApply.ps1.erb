@@ -1,0 +1,8 @@
+#Get the Patch List 
+$patchList = <%= @patchList %>
+
+#Loop through each list and apply the patch
+foreach ($patch in $patchList) {
+    $proc = Start-Process "wusa.exe" -verb runas -argumentList "$patch /quiet /norestart" -PassThru
+    while(!$proc.HasExited){ sleep -Seconds 1 }
+}

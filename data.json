@@ -1,0 +1,404 @@
+{
+  "name": "argus_2141_idm_webgate11g_role_$Customer_Name$Current_Environment_Name",
+  "description": "IDM 1 - 11.1.2.3 - Create 11g Webgate for OBIEE",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "oci_ol": {
+      "release": "Oracle Linux Server release 6.5",
+      "packages": {
+        "required": "oracle-rdbms-server-12cR1-preinstall"
+      }
+    },
+    "oci_common": {
+      "key_path": ""
+    },
+    "oci_rcu": {
+      "is_install": "yes",
+      "version": "11.1.2.3",
+      "oracle_dirname": "/u01/app/Oracle",
+      "product_dirname": "/u01/app/Oracle/Middleware",
+      "components": {
+        "OIM": {
+          "remove": "no",
+          "configure": "no",
+          "schema_prefix": "PRODOIM"
+        },
+        "OAM": {
+          "remove": "no",
+          "configure": "no",
+          "schema_prefix": "PRODOAM"
+        },
+        "OIM_OAM": {
+          "remove": "no",
+          "configure": "yes",
+          "schema_prefix": "PROD"
+        }
+      }
+    },
+    "oci_oud": {
+      "version": "11.1.2.3",
+      "is_install": "yes",
+      "primary_node": {
+        "is_configure": "yes",
+        "instance_name": "oud1",
+        "baseDN": "dc=hsgbu,dc=oracle,dc=com",
+        "ldapPort": "1389",
+        "adminConnectorPort": "4444",
+        "rootUserDN": "oudadmin",
+        "ldapsPort": "1636",
+        "replicationPort": "8989"
+      },
+      "secondary_node": {
+        "is_configure": "no"
+      }
+    },
+    "oci_java": {
+      "version_number": "1.7",
+      "install_basedir": "/u01/app",
+      "install_dir": "/u01/app/Oracle/Middleware",
+      "ssl_dir": "/u01/app/Oracle/Middleware/ssl",
+      "jdk_name": "jdk"
+    },
+    "oci_weblogic": {
+      "pkg_version": "10.3",
+      "domain_configure": "false"
+    },
+    "oci_soa": {
+      "idm_version": "11.1.2.3",
+      "soa_version": "11.1.1.9",
+      "oracle_home_name": "Oracle_SOA1"
+    },
+    "oci_oim": {
+      "idm_version": "11.1.2.3",
+      "oracle_home_name": "Oracle_IAM1",
+      "domain_configure": "",
+      "domain": {
+        "name": "OIMDomain"
+      },
+      "cluster_configure": "",
+      "is_node_primary": "true",
+      "soa_config": {
+        "oci_soa": {
+          "managed_servers": {
+            "soa_server1": {
+              "listen_port": "8001",
+              "ssl_port": "8002",
+              "java_memory_min": "512",
+              "java_memory_max": "1024",
+              "perm_size": "512"
+            }
+          }
+        }
+      },
+      "oim_config": {
+        "oci_oim": {
+          "managed_servers": {
+            "oim_server1": {
+              "listen_port": "14000",
+              "ssl_port": "14001",
+              "java_memory_min": "512",
+              "java_memory_max": "1024",
+              "perm_size": "512"
+            }
+          }
+        }
+      },
+      "bip_config": {
+        "oci_bip": {
+          "managed_servers": {
+            "bi_server1": {
+              "listen_port": "7003",
+              "ssl_port": "7004",
+              "java_memory_min": "512",
+              "java_memory_max": "1024",
+              "perm_size": "512"
+            }
+          }
+        }
+      },
+      "design_console": {
+        "oim_managed_server_port": "14000"
+      }
+    },
+    "oci_oam": {
+      "idm_version": "11.1.2.3",
+      "oracle_home_name": "Oracle_IAM1",
+      "domain_configure": "",
+      "domain": {
+        "name": "OAMDomain"
+      },
+      "cluster_configure": "",
+      "is_node_primary": "true",
+      "oam_config": {
+        "oci_oam": {
+          "managed_servers": {
+            "oam_server1": {
+              "listen_port": "14100",
+              "ssl_port": "14101",
+              "java_memory_min": "512",
+              "java_memory_max": "1024",
+              "perm_size": "512"
+            }
+          }
+        }
+      }
+    },
+    "oci_idmint": {
+      "is_node_primary": "true",
+      "idm_version": "11.1.2.3"
+    },
+    "oci_ohs": {
+      "is_install": "yes",
+      "domain_name": "ohs_domain",
+      "bitsupprtd": "64bit",
+      "version": "11.1.1.9",
+      "ohs_port": "7777",
+      "oracle_middleware_home": "/u01/app/Oracle/Middleware",
+      "oracle_inventory_home": "/u01/app/Oracle/oraInventory",
+      "product_dirname": "/u01/app/Oracle",
+      "instance_name": "instance1"
+    },
+    "oci_webgate": {
+      "is_install": "yes",
+      "idm_version": "11.1.2.3",
+      "version": "11.1.2.3"
+    },
+    "oci_idm": {
+      "install_java": "true",
+      "install_rcu": "fale",
+      "install_oud": "false",
+      "install_weblogic": "false",
+      "install_soa": "false",
+      "install_ohs": "false",
+      "install_webgate": "false",
+      "install_oim_oam": "false",
+      "domain_configure": "false",
+      "cluster_configure": "false",
+      "is_node_primary": "true",
+      "integration": "false",
+      "idm_conf": "true"
+    },
+    "oci_oem": {
+      "em_upload_port": "4900",
+      "agent_port": "3872",
+      "b_startagent": "true",
+      "s_agenthomename": "zzAgent12c",
+      "em_install_type": "AGENT"
+    },
+    "hsgbu_idmconf": {
+      "eleven_g_names": "$Eleven_G_Webgate_Name_OBIEE_Array",
+      "wg_flag": "$Eleven_G_Webgate_Option_OBIEE",
+      "eleven_g": {
+        "AS_OBIEE_Agent": {
+          "hostPortVariationsList": "$Eleven_G_Webgate_Host_and_Port_OBIEE_Array",
+          "ipValidationExceptions": "",
+          "logOutUrls": "$Eleven_G_Webgate_Logout_Url",
+          "logoutCallbackUrl": "",
+          "logoutTargetUrlParamName": "",
+          "protectedResourcesList": "/xmlpserver,/analytics/saw.dll,/analytics,/analyticsRes,/mobile/…/*,/analytics/jbips,/bicomposer,/mobile,/**,/../*",
+          "publicResourcesList": "",
+          "excludedResourcesList": "/biservices,/analytics-bi-adf,/xmlpserver/Guest,/xmlpserver/ReportTemplateService.xls,/xmlpserver/report_service,/xmlpserver/services,/analytics/saw.dll/wsdl,/analytics-ws,/ws/.../*,/wsm-pm,/wsm-pm/.../*,/xmlpserver/services/**",
+          "authentication_policyList": [
+            {
+              "name": "Protected Resource Policy",
+              "desc": "Policy set during domain creation. Add resources to this policy to protect them.",
+              "successResponseList": [
+                {
+                  "name": "OAM_REMOTE_USER",
+                  "type": "Header",
+                  "value": "$user.attr.uid"
+                }
+              ]
+            }
+          ],
+          "authorization_policyList": [
+            {
+              "name": "Protected Resource Policy",
+              "desc": "Policy set during domain creation. Add resources to this policy to protect them.",
+              "successResponseList": [
+                {
+                  "name": "OAM_REMOTE_USER",
+                  "type": "Header",
+                  "value": "$user.attr.uid"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "ten_g": {
+        "AS_10G_Agent": {
+          "hostPortVariationsList": "",
+          "ipValidationExceptions": "",
+          "logOutUrls": "",
+          "logoutCallbackUrl": "",
+          "logoutTargetUrlParamName": "",
+          "protectedResourcesList": "/.../*,/",
+          "publicResourcesList": "",
+          "excludedResourcesList": "",
+          "authentication_policyList": [
+            {
+              "name": "Protected Resource Policy",
+              "desc": "Policy set during domain creation. Add resources to this policy to protect them.",
+              "successResponseList": [
+                {
+                  "name": "SM_USER",
+                  "type": "Header",
+                  "value": "$user.userid"
+                }
+              ]
+            }
+          ],
+          "authorization_policyList": [
+            {
+              "name": "Protected Resource Policy",
+              "desc": "Policy set during domain creation. Add resources to this policy to protect them.",
+              "successResponseList": [
+                {
+                  "name": "SM_USER",
+                  "type": "Header",
+                  "value": "$user.userid"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "idm_zip_file": "idm_utility.zip",
+      "idm_username": "xelsysadm",
+      "conf_file": "idm_utility/conf/authwl.conf",
+      "jar_location": "idm_utility/lib/",
+      "prefix": "dev,test",
+      "enterprise": "EE",
+      "idm_org": {
+        "org1": {
+          "ORG_NAME": "EEPVAAdmin",
+          "ORG_TYPE": "Company"
+        }
+      },
+      "SE_idm_role": {
+        "role1": {
+          "NAME": "FARAdminGroup",
+          "DISPLAY_NAME": "FARAdminGroup",
+          "DESCRIPTION": "FAR Administrator Group"
+        },
+        "role2": {
+          "NAME": "FARSafetyAuthorGroup",
+          "DISPLAY_NAME": "FARSafetyAuthorGroup",
+          "DESCRIPTION": "FAR Safety Author Group"
+        },
+        "role3": {
+          "NAME": "FARSafetyConsumerGroup",
+          "DISPLAY_NAME": "FARSafetyConsumerGroup",
+          "DESCRIPTION": "FAR Safety Consumers Group"
+        },
+        "role4": {
+          "NAME": "EXPAdminGroup",
+          "DISPLAY_NAME": "EXPAdminGroup",
+          "DESCRIPTION": "EXP Administrator Group"
+        },
+        "role5": {
+          "NAME": "EXPSafetyAuthorGroup",
+          "DISPLAY_NAME": "EXPSafetyAuthorGroup",
+          "DESCRIPTION": "EXP Safety Author Group"
+        },
+        "role6": {
+          "NAME": "EXPSafetyConsumerGroup",
+          "DISPLAY_NAME": "EXPSafetyConsumerGroup",
+          "DESCRIPTION": "EXP Safety Consumers Group"
+        }
+      },
+      "EE_idm_role": {
+        "role1": {
+          "NAME": "FARAdminGroup",
+          "DISPLAY_NAME": "FARAdminGroup",
+          "DESCRIPTION": "FAR Administrator Group"
+        },
+        "role2": {
+          "NAME": "FARSafetyAuthorGroup",
+          "DISPLAY_NAME": "FARSafetyAuthorGroup",
+          "DESCRIPTION": "FAR Safety Author Group"
+        },
+        "role3": {
+          "NAME": "FARSafetyConsumerGroup",
+          "DISPLAY_NAME": "FARSafetyConsumerGroup",
+          "DESCRIPTION": "FAR Safety Consumers Group"
+        },
+        "role4": {
+          "NAME": "AIAdminGroup",
+          "DISPLAY_NAME": "AIAdminGroup",
+          "DESCRIPTION": "AI Administrator Group"
+        },
+        "role5": {
+          "NAME": "AIAuthorGroup",
+          "DISPLAY_NAME": "AIAuthorGroup",
+          "DESCRIPTION": "AI Author Group"
+        },
+        "role6": {
+          "NAME": "AISafetyConsumerGroup",
+          "DISPLAY_NAME": "AISafetyConsumerGroup",
+          "DESCRIPTION": "AI Consumers Group"
+        },
+        "role7": {
+          "NAME": "PVAAdmin",
+          "DISPLAY_NAME": "PVAAdmin",
+          "DESCRIPTION": "PVA Administrator Group"
+        },
+        "role8": {
+          "NAME": "PVASafetyGroup",
+          "DISPLAY_NAME": "PVASafetyGroup",
+          "DESCRIPTION": "PVA Safety Author Group"
+        },
+        "role9": {
+          "NAME": "PVASafetyConsumersGroup",
+          "DISPLAY_NAME": "PVASafetyConsumersGroup",
+          "DESCRIPTION": "PVA Safety Consumers Group"
+        },
+        "role10": {
+          "NAME": "EXPAdminGroup",
+          "DISPLAY_NAME": "EXPAdminGroup",
+          "DESCRIPTION": "EXP Administrator Group"
+        },
+        "role11": {
+          "NAME": "EXPSafetyAuthorGroup",
+          "DISPLAY_NAME": "EXPSafetyAuthorGroup",
+          "DESCRIPTION": "EXP Safety Author Group"
+        },
+        "role12": {
+          "NAME": "EXPSafetyConsumerGroup",
+          "DISPLAY_NAME": "EXPSafetyConsumerGroup",
+          "DESCRIPTION": "EXP Safety Consumers Group"
+        }
+      },
+      "idm_user": {
+        "user1": {
+          "FIRSTNAME": "user",
+          "LASTNAME": "test1",
+          "USER_LOGIN": "usertest1",
+          "USER_ORGANIZATION": "Org11",
+          "ROLE": "PVAAdmin,PVASafetyGroup",
+          "EMPTYPE": "Full-Time",
+          "DATABAG_ENTRY": "user1_idm_user_password"
+        }
+      }
+    },
+    "oci_opam": {
+      "customerName": "$Customer_Name",
+      "currEnv": "$Current_Environment_Name",
+      "execEnv": "$Execution_Environment_Name",
+      "user": "$OPAM_Admin_Username"
+    },
+    "hsgbu_argus_opam": {
+      "target_names": {
+        "application_name": "$Environment_Specific_Target_Name",
+        "idm_server": "$IDM_Server_Target_Name"
+      }
+    }
+  },
+  "run_list": [
+    "recipe[hsgbu_argus_utility::clean_tmp]",
+    "recipe[hsgbu_argus_idmconf::create_11gwebgate1]",
+    "recipe[hsgbu_argus_idmconf::copy_webgate]"
+  ]
+}

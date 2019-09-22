@@ -1,0 +1,2 @@
+task_id	target_group_name	target_env_name	target_node_list	target_role_name	task_status	task_scheduled_time
+19	WIN1	DEV	winnode1	patch_apply	Scheduled	2019-09-17 16:23:00

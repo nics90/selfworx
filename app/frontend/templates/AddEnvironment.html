@@ -1,0 +1,73 @@
+{%  extends "base.html" %}
+{% block side %}
+
+<!-- Jquery JS-->
+<script src="{{ url_for('frontend.static', filename='vendor/jquery-3.2.1.min.js')}}"></script>
+
+<script>
+$(document).ready(function(){
+ $('button').click(function() {
+        $.ajax({
+            url: '/api/addTargetEnv',
+            data: $('form').serialize(),
+            type: 'POST',
+			      success: function(response) {
+              //console.log(response);
+				      response = JSON.parse(response)
+				      //if (response.redirect !== undefined && response.redirect) {
+				      if ( response.redirect == "true" ) {
+				            alert('Environment created Successfully');
+				            window.location.href = response.redirect_url;
+					     }
+				      else {
+				            console.log(response);
+				            alert('Environment already exist. Please try some other environment name');
+				       }
+                //result = JSON.parse(response)
+			        },
+        error: function(error) {
+				            alert('Some error occurred while creating environment');
+              }
+			    });
+    });
+});
+</script>
+                        <!-- MAIN CONTENT-->
+                              <div class="main-content">
+                                  <div class="section__content section__content--p30">
+                                      <div class="container-fluid">
+                                        <div class="row">
+                                          <div class="card-body">
+                                              <div class="card-title">
+                                                  <h3 class="text-center title-2">Add Environment</h3>
+                                              </div>
+                                              <hr>
+                                              <form action="" method="post" novalidate="novalidate">
+                                                  <div class="form-group">
+                                                      <label for="cc-payment" class="control-label mb-1">Environment Name</label>
+                                                      <input type="text" name="envname" class="form-control">
+                                                  </div>
+                                                  <div class="form-group has-success">
+                                                      <label for="cc-name" class="control-label mb-1">Environment Description</label>
+                                                      <input type="text" name="envdesc" class="form-control">
+                                                      <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                                  </div>
+                                                 <div>
+                                                      <button  type="button" class="btn btn-lg btn-info btn-block">Submit
+                                                      </button>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                          </div>
+                                        <div class="row copyright-footer">
+                                              <div class="col-md-12">
+                                                  <div class="copyright">
+                                                      <p>Copyright © 2018 Colorlib. </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- END MAIN CONTENT-->
+{% endblock %}

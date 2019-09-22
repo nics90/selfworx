@@ -1,0 +1,81 @@
+2019-09-21 04:19:01 :: <INFO> :: Initialization Variables set successfully.
+2019-09-21 04:19:01 :: <INFO> :: Fetching task details from database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:19:01 :: <INFO> :: Successfully fetched task details from database.
+2019-09-21 04:19:01 :: <INFO> :: Fetching role name and node list from data file.
+2019-09-21 04:19:01 :: <INFO> :: Successfully fetched role name and node list from data file.
+2019-09-21 04:19:01 :: <INFO> :: Creating role to node mapping from data file.
+2019-09-21 04:19:01 :: <INFO> :: Finished creating role to node mapping from data file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:19:01 :: <INFO> :: Passing the control over to windows job executor.
+2019-09-21 04:19:01 :: <INFO> :: Initialization Variables set successfully in Job Executor.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:19:01 :: <INFO> :: Task Status successfully marked 'Running' in database.
+2019-09-21 04:19:01 :: <INFO> :: Traversing jobs from role to node mapping file.
+2019-09-21 04:19:01 :: <INFO> :: Successfully fetched job id, role name or node name from role to node mapping file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:19:01 :: <INFO> :: Successfully created job with Job ID: 1 in database.
+2019-09-21 04:19:02 :: <INFO> :: Successfully found activity directory.
+2019-09-21 04:19:31 :: <INFO> :: Job ID: 1 : Executing Role prod_win_reboot on Node winnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:19:31 :: <INFO> :: Successfully updated job status 'Executing' with Job ID: 1 in database.
+winnode1 Starting Chef Client, version 14.12.9[0m
+winnode1 
+winnode1 [2019-09-21T04:19:58+00:00] INFO: *** Chef 14.12.9 ***
+winnode1 [2019-09-21T04:19:58+00:00] INFO: Platform: x64-mingw32
+winnode1 [2019-09-21T04:19:58+00:00] INFO: Chef-client pid: 1984
+winnode1 [2019-09-21T04:19:58+00:00] INFO: The plugin path C:\chef\ohai\plugins does not exist. Skipping...
+winnode1 [2019-09-21T04:20:03+00:00] INFO: Setting the run_list to [#<Chef::RunList::RunListItem:0x000000000421d488 @version=nil, @type=:role, @name="prod_win_reboot">] from CLI options
+winnode1 [2019-09-21T04:20:03+00:00] INFO: Run List is [role[prod_win_reboot]]
+winnode1 [2019-09-21T04:20:03+00:00] INFO: Run List expands to [selfworx_win_config::restart_node]
+winnode1 [2019-09-21T04:20:03+00:00] INFO: Starting Chef Run for winnode1
+winnode1 [2019-09-21T04:20:03+00:00] INFO: Running start handlers
+winnode1 [2019-09-21T04:20:03+00:00] INFO: Start handlers complete.
+winnode1 [2019-09-21T04:20:03+00:00] INFO: Error while reporting run start to Data Collector. URL: https://chefserver.selfworx.com/organizations/selfworx/data-collector Exception: 404 -- 404 "Not Found"  (This is normal if you do not have Chef Automate)
+winnode1 resolving cookbooks for run list: ["selfworx_win_config::restart_node"][0m
+winnode1 [2019-09-21T04:20:04+00:00] INFO: Loading cookbooks [selfworx_win_config@0.1.0]
+winnode1 Synchronizing Cookbooks:[0m
+winnode1 
+winnode1   - selfworx_win_config (0.1.0)[0m
+winnode1 Installing Cookbook Gems:[0m
+winnode1 Compiling Cookbooks...[0m
+winnode1 Converging 1 resources[0m
+winnode1 
+winnode1 Recipe: selfworx_win_config::restart_node[0m
+winnode1   * reboot[now] action reboot_now[2019-09-21T04:20:04+00:00] INFO: Processing reboot[now] action reboot_now (selfworx_win_config::restart_node line 13)
+winnode1 [2019-09-21T04:20:04+00:00] WARN: Rebooting system immediately, requested by 'now'
+winnode1 [2019-09-21T04:20:04+00:00] INFO: Changing reboot status from {} to {:delay_mins=>1, :reason=>"Production Windows Server Reboot", :timestamp=>2019-09-21 04:20:04 +0000, :requested_by=>"now"}
+winnode1 [2019-09-21T04:20:04+00:00] INFO: Chef Run complete in 0.785291 seconds
+winnode1 
+winnode1     [0m
+winnode1     Running handlers:[0m
+winnode1 [2019-09-21T04:20:04+00:00] INFO: Running report handlers
+winnode1     Running handlers complete
+winnode1 [0m[2019-09-21T04:20:04+00:00] INFO: Report handlers complete
+winnode1     Chef Client finished, 0/0 resources updated in 06 seconds[0m
+winnode1 [2019-09-21T04:20:04+00:00] WARN: Rebooting server at a recipe's request. Details: {:delay_mins=>1, :reason=>"Production Windows Server Reboot", :timestamp=>2019-09-21 04:20:04 +0000, :requested_by=>"now"}
+winnode1     
+winnode1 [0m
+winnode1     Running handlers:[0m
+winnode1 [2019-09-21T04:20:04+00:00] ERROR: Running exception handlers
+winnode1     Running handlers complete
+winnode1 [0m[2019-09-21T04:20:04+00:00] ERROR: Exception handlers complete
+winnode1     Chef Client failed. 0 resources updated in 06 seconds[0m
+winnode1 [2019-09-21T04:20:04+00:00] FATAL: Stacktrace dumped to c:/chef/cache/chef-stacktrace.out
+winnode1 [2019-09-21T04:20:04+00:00] FATAL: Please provide the contents of the stacktrace.out file if you file a bug report
+winnode1 [2019-09-21T04:20:04+00:00] FATAL: Chef::Exceptions::Reboot: Rebooting server at a recipe's request. Details: {:delay_mins=>1, :reason=>"Production Windows Server Reboot", :timestamp=>2019-09-21 04:20:04 +0000, :requested_by=>"now"}
+2019-09-21 04:20:08 :: <INFO> :: Job ID: 1 : Successfully executed Role prod_win_reboot on Node winnode1.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:20:08 :: <INFO> :: Successfully updated job status 'Completed' with Job ID: 1 in database.
+2019-09-21 04:20:08 :: <INFO> :: Successfully fetched job id, role name or node name from role to node mapping file.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:20:08 :: <INFO> :: Successfully created job with Job ID: 2 in database.
+2019-09-21 04:20:09 :: <INFO> :: Successfully found activity directory.
+2019-09-21 04:20:38 :: <INFO> :: Job ID: 2 : Executing Role prod_win_reboot on Node winnode2.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:20:38 :: <INFO> :: Successfully updated job status 'Executing' with Job ID: 2 in database.
+2019-09-21 04:21:22 :: <ERROR> :: Job ID: 2 : Failed to execute Role prod_win_reboot on Node winnode2.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:21:22 :: <INFO> :: Successfully updated job status 'Failed' with Job ID: 2 in database.
+Warning: Using a password on the command line interface can be insecure.
+2019-09-21 04:21:22 :: <INFO> :: Task Status successfully marked 'Finished' in database.

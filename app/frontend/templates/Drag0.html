@@ -1,0 +1,114 @@
+{%  extends "base.html" %}
+{% block side %}
+<!-- Draggable UI JS  -->
+<script src="{{ url_for('frontend.static', filename='js/jquery-1.9.1.js')}}"></script>
+<script src="{{ url_for('frontend.static', filename='js/jquery-ui.js')}}"></script>
+<!--script src="{{ url_for('frontend.static', filename='js/jquery-ui.js')}}"></script-->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $.ajax({
+        url: '/api/getTargetRoles',
+        data: $('form').serialize(),
+        type: 'GET',
+        success: function(response) {
+            console.log(response);
+            count = Object.keys(response).length
+            console.log(count);
+            for(i=0;i<=count-1;i++)
+             {
+               console.log(response[i]['target_role_display_name']);
+            //   $("table").append('<tr>'+response[i]['target_role_display_name']+'</tr>')
+              // $("#sortable-6").append('<tr></tr>')
+             }
+
+          },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+  });
+</script>
+<style>
+.sortable { background-color: black; border: 1px solid black; border-collapse: collapse; font: 24px 'Open Sans', 'Helvetica Neue', sans-serif; width: 200px; }
+.sortable td { background-color: white; border: 1px solid black; padding: 4px; }
+.drop-row { visibility: hidden; }
+</style>
+
+<script type="text/javascript">
+  function hideOrShowDropRow(){
+    $(".sortable").each(function() {
+        var dropRow = $(this).find(".drop-row"),
+            hasRows = $(this).find("tbody tr").length;
+
+        hasRows ? dropRow.hide() : dropRow.show();
+    });
+}
+
+$(".sortable").sortable({
+    items: 'tbody > tr',
+    connectWith: ".sortable",
+    receive: function(event, ui) {
+        $(this).find("tbody").append(ui.item);
+        hideOrShowDropRow();
+    }
+});
+
+hideOrShowDropRow();
+</script>
+
+<!-- MAIN CONTENT-->
+      <div class="main-content">
+          <div class="section__content section__content--p30">
+              <div class="container-fluid">
+                <div class="row">
+      <div class="col-lg-6">
+        <table class='sortable'>
+      <tbody>
+        <thead>
+            <tr>
+                <th>Environment Name</th>
+            </tr>
+        </thead>
+          <tr>
+              <td>Row 1 Cell 1</td>
+          </tr>
+          <tr>
+              <td>Row 2 Cell 1</td>
+          </tr>
+      </tbody>
+      <tfoot>
+          <tr><td colspan="1" class="drop-row" style="display: none;"></td></tr>
+      </tfoot>
+  </table>
+  </div>
+  <hr>
+  <div class="col-lg-6">
+  <table class='sortable'>
+      <tbody>
+        <thead>
+            <tr>
+                <th>Environment Name</th>
+            </tr>
+        </thead>
+      </tbody>
+      <tfoot>
+          <tr><td colspan="2" class="drop-row" style="display: none;"></td></tr>
+      </tfoot>
+  </table>
+  </div>
+    </div>
+  </div>
+                <div class="row copyright-footer">
+                      <div class="col-md-12">
+                          <div class="copyright">
+                              <p>Copyright © 2018 Colorlib. </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- END MAIN CONTENT-->
+
+
+{% endblock %}
