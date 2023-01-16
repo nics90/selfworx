@@ -17,7 +17,7 @@ PyMySQL==0.9.3
 python-crontab==2.3.6
 python-dateutil==2.8.0
 pywinusb==0.4.2
-setuptools==41.0.1
+setuptools==65.5.1
 six==1.12.0
 SQLAlchemy==1.2.16
 virtualenv==15.1.0
